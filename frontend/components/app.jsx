@@ -11,7 +11,7 @@ import {
 import NewSessionContainer from './sessions/new_session_container';
 import GreetingContainer from './greeting/greeting_container';
 import NewUserContainer from './users/new_user_container';
-// import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => {
   return(
@@ -20,8 +20,8 @@ const App = () => {
         <GreetingContainer />
       </header>
       <Switch>
-        <Route path="/login" component={NewSessionContainer}/>
-        <Route path="/signup" component={NewUserContainer} />
+        <AuthRoute path="/login" component={NewSessionContainer}/>
+        <AuthRoute path="/signup" component={NewUserContainer} />
       </Switch>
     </div>
   );
