@@ -3,7 +3,7 @@ var path = require('path');
 module.exports = {
   entry: './frontend/oto_no_kumo.jsx',
   output: {
-    filename: './bundle.js',
+    filename: './app/assets/javascripts/bundle.js',
   },
   module: {
     loaders: [
