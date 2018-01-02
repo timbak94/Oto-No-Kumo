@@ -46,6 +46,7 @@ class NewSessionForm extends React.Component {
   render() {
     return (
       <div className="sign-form-container">
+        <section className="modal-screen"></section>
         <form onSubmit={this.handleSubmit} className="SignUpForm">
           <h1> Log Into your Oto no Kumo Account </h1>
           {this.renderErrors()}
@@ -59,8 +60,8 @@ class NewSessionForm extends React.Component {
             </label>
             <input type="submit" value="Log In!" />
           </div>
+          Trying to <Link to='/signUp'>sign up?</Link>
         </form>
-        Trying to <Link to='/signUp'>sign up?</Link>
       </div>
     );
   }
