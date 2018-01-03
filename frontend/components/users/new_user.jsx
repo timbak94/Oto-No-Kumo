@@ -21,6 +21,7 @@ class NewUserForm extends React.Component {
     }
   }
 
+
   componentDidMount() {
     this.props.clearErrors();
   }

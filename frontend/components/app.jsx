@@ -20,8 +20,10 @@ const App = () => {
         <GreetingContainer />
       </header>
       <Switch>
-        <AuthRoute path="/login" component={NewSessionContainer}/>
-        <AuthRoute path="/signup" component={NewUserContainer} />
+        <Route path="/login" component={NewSessionContainer}/>
+        <Route path="/signup" component={NewUserContainer} />
+        <Route path="/home"/>
+        <Route path="/collection"/>
       </Switch>
     </div>
   );

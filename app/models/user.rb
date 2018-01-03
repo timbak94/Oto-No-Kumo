@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-  validates :username, :password_digest, :session_token, presence: true
+  validates :username, :password_digest, :session_token, :avatar_url, presence: true
   validates :username, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
-  after_initialize :ensure_session_token
+  after_initialize :ensure_session_token, :ensure_avatar
 
   attr_reader :password
 
@@ -12,6 +12,10 @@ class User < ApplicationRecord
       return user
     end
     nil
+  end
+
+  def ensure_avatar
+    self.avatar_url = "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg" unless self.avatar_url
   end
 
   def password=(password)
