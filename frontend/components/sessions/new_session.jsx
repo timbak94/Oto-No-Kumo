@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { CSSTransitionGroup } from 'react-transition-group';
 
 
 class NewSessionForm extends React.Component {
@@ -76,7 +75,7 @@ class NewSessionForm extends React.Component {
           </div>
           <a onClick={(e) => (e.preventDefault(), this.handleLeave('/signup'))} className="leave"> Trying to sign up? </a>
         <br></br>
-        <a onClick={(e) => (e.preventDefault(), this.handleLeave('/'))} className="closing-x">X</a>
+        <a onClick={(e) => (e.preventDefault(), this.handleLeave('/welcome'))} className="closing-x">X</a>
         </form>
       </div>
     );

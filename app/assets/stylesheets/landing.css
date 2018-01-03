@@ -1,0 +1,47 @@
+#landing-logo {
+  background: none;
+  font-size: 40px;
+}
+
+.landing h1 {
+  margin-left: 10px;
+  font-size: 30px;
+}
+
+.landing-logo {
+  display: flex;
+  align-items: center;
+}
+
+.slidshow {
+  width: 1000px;
+  overflow: hidden;
+}
+
+.fa-circle {
+  color: black;
+}
+
+.checked {
+  color: red;
+}
+
+#landing-button {
+  font-size: 10px;
+}
+
+.slideshow-content {
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+}
+
+.slideLeft {
+  transform: translateX(200px);
+  transition: all .5s ease
+}
+
+.slideRight {
+  transform: translateX(-200px);
+  transition: all .5s ease
+}

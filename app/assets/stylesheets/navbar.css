@@ -57,10 +57,17 @@
 }
 
 .header-button {
+  border-radius: 5px;
+  margin-right: 10px;
+  padding: 4px 5px;
   text-shadow: 1.5px 1.5px 1px #9370DB;
   height: 20px;
   border: none;
   color: white;
   font-family: 'Julius Sans One', sans-serif;
   background-color: #8ECCFF;
+}
+.header-button:hover {
+  background-color: #DFBFFF;
+  
 }
