@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class NewUserForm extends React.Component {
   constructor(props) {
@@ -46,6 +47,7 @@ class NewUserForm extends React.Component {
   render() {
     return (
       <div className="sign-form-container">
+        <section className="modal-screen"></section>
         <form onSubmit={this.handleSubmit} className="SignUpForm">
           <h1> Create your Oto no Kumo Account </h1>
           {this.renderErrors()}
@@ -59,8 +61,10 @@ class NewUserForm extends React.Component {
             </label>
             <input type="submit" value="Sign Up!" />
           </div>
-        </form>
-        Trying to <Link to='/login'>login?</Link>
+          Trying to <Link to='/login'>login?</Link>
+        <br></br>
+        <Link to='/'>X</Link>
+      </form>
       </div>
     );
   }
