@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class NewUserForm extends React.Component {
   constructor(props) {
@@ -61,7 +62,9 @@ class NewUserForm extends React.Component {
             <input type="submit" value="Sign Up!" />
           </div>
           Trying to <Link to='/login'>login?</Link>
-        </form>
+        <br></br>
+        <Link to='/'>X</Link>
+      </form>
       </div>
     );
   }
