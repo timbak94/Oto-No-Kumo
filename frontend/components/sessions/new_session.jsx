@@ -8,7 +8,9 @@ class NewSessionForm extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      slide: "fadeInDown",
+      modal: "fadeIn"
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -17,6 +19,16 @@ class NewSessionForm extends React.Component {
     if (nextProps.loggedIn) {
       this.props.history.push('/');
     }
+  }
+
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
+  handleLeave(destination) {
+    this.setState({slide: "fadeOutUp"});
+    this.setState({modal: "fadeOut"});
+    setTimeout(()=>{this.props.history.push(destination);}, 700);
   }
 
   update(field) {
@@ -48,17 +60,10 @@ class NewSessionForm extends React.Component {
   render() {
     return (
       <div className="sign-form-container">
-        <CSSTransitionGroup
-          transitionName="example"
-          transitionAppear={true}
-          transitionEnterTimeout={100}
-          transitionEnter={false}
-          transitionLeave={false}>
-          <section className="modal-screen"></section>
-        </CSSTransitionGroup>
-        <form onSubmit={this.handleSubmit} className="SignUpForm">
+          <section className={`modal-screen animated ${this.state.modal}`}></section>
+        <form onSubmit={this.handleSubmit} className={`SignUpForm animated ${this.state.slide}`}>
           <h1> Log Into your Oto no Kumo Account </h1>
-          {this.renderErrors()}
+          <h3>{this.renderErrors()}</h3>
           <div className="SignUpFields">
             <label> Username
               <input type="text" value={this.state.username} onChange={this.update('username')} className="signup-input" />
@@ -67,9 +72,11 @@ class NewSessionForm extends React.Component {
             <label> Password
               <input type="password" value={this.state.password} onChange={this.update('password')} className="signup-input" />
             </label>
-            <input type="submit" value="Log In!" />
+            <input type="submit" value="Log In!" className="submit-button"/>
           </div>
-          Trying to <Link to='/signUp'>sign up?</Link>
+          <a onClick={(e) => (e.preventDefault(), this.handleLeave('/signup'))} className="leave"> Trying to sign up? </a>
+        <br></br>
+        <a onClick={(e) => (e.preventDefault(), this.handleLeave('/'))} className="closing-x">X</a>
         </form>
       </div>
     );

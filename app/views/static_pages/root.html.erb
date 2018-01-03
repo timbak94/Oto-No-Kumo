@@ -1,7 +1,14 @@
-<script id="bootstrap-current-user" type="text/javascript">
-  <% if logged_in? %>
-  	window.currentUser = <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
-  <% end %>
-</script>
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+  <script id="bootstrap-current-user" type="text/javascript">
+    <% if logged_in? %>
+    	window.currentUser = <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
+    <% end %>
+  </script>
+</head>
+
+
+
 
 <main id="root"> HELLO </main>

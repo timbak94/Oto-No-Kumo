@@ -14,7 +14,9 @@
  *= require_self
  */
 
-
+body {
+  font-family: 'Julius Sans One', sans-serif;
+}
 
 .modal-screen {
   position: fixed;
@@ -26,35 +28,80 @@
   background: rgba(200, 255, 255, .8);
 }
 
-.modal-appear {
-  opacity: 0.01;
-}
-
-.modal-appear.modal-appear-active {
-  opacity: 1;
-  transition: opacity .1s ease-in;
-}
-
-.user-form-appear {
-  opacity: 0.01;
-}
-
-.user-form-appear.user-form-appear-active {
-  opacity: 1;
-  transform: rotate(1080deg);
-  transition: opacity .1s ease-in;
-  transition: transform 1s;
-}
 
 .SignUpForm {
+  box-shadow: 10px 10px 10px #DFBFFF;
   position: absolute;
   top: 100px;
   left: 50%;
-  margin-left: -220px;
-  width: 360px;
+  margin-left: -280px;
+  width: 500px;
   padding: 20px;
   background: #fff;
   z-index: 3;
   border-radius: 5px;
-  border: 1px solid #000;
+}
+
+.SignUpForm h1 {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.SignUpForm label {
+  font-size: 15px;
+}
+
+
+.signup-input {
+
+  border-radius: 5px;
+  border: 1px solid #DFBFFF;
+  width: 480px;
+  height: 20px;
+  margin: 10px 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.SignUpForm input:focus {
+  outline: none;
+  border-color: #FF9EDB
+}
+
+.SignUpForm h3 {
+  color: red;
+  font-size: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.submit-button {
+  font-family: 'Julius Sans One', sans-serif;
+  width: 500px;
+  height: 25px;
+  margin: 10px 0px;
+  color: white;
+  font-size: 15px;
+  background-color: #9370DB;
+}
+
+.submit-button:active {
+  background-color: #FF9EDB;
+}
+
+.leave:hover {
+  color: #FF9EDB;
+  cursor: pointer;
+}
+
+.closing-x {
+  z-index: 4;
+  color: #9370DB;
+}
+
+.closing-x:active {
+  color: #FF9EDB;
 }
