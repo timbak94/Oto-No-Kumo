@@ -19,12 +19,14 @@ const App = () => {
       <header>
         <GreetingContainer />
       </header>
-      <Switch>
-        <Route path="/login" component={NewSessionContainer}/>
-        <Route path="/signup" component={NewUserContainer} />
-        <Route path="/home"/>
-        <Route path="/collection"/>
-      </Switch>
+      <section className="main-body">
+        <Switch>
+          <Route path="/login" component={NewSessionContainer}/>
+          <Route path="/signup" component={NewUserContainer} />
+          <Route path="/home"/>
+          <Route path="/collection"/>
+        </Switch>
+      </section>
     </div>
   );
 };

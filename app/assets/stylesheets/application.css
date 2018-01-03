@@ -16,6 +16,14 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(to bottom right, #9370DB, #7FF8FF)
+}
+
+.main-body {
+  width: 1000px;
+  min-height: 1000px;
+  background-color: white;
+  margin: auto;
 }
 
 .modal-screen {

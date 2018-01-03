@@ -17,7 +17,7 @@ class NewUserForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn) {
-      this.handleLeave("/");
+      this.handleLeave("/home");
     }
   }
 
