@@ -7,7 +7,7 @@ class Home extends React.Component {
     return (
       <div> TEMP STUFF WOWWWWW</div>
     )
-  }
+  } 
 }
 
 export default withRouter(Home);
