@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Slideshow from './slideshow';
+import NewSessionContainer from '../sessions/new_session_container';
+import NewUserContainer from '../users/new_user_container';
 
 class LandingPage extends React.Component {
 
@@ -14,15 +16,15 @@ class LandingPage extends React.Component {
               <h1>Oto no Kumo</h1>
             </li>
             <li>
-              <Link to="/login">Login</Link>
+              <button onClick={ this.props.showModal(<NewSessionContainer />)}>Login</button>
             </li>
             <li>
-              <Link to="/signup">Sign Up</Link>
+              <button>Sign Up</button>
             </li>
           </ul>
           <Slideshow />
         </nav>
-        
+
       </section>
     );
   }
