@@ -17,7 +17,8 @@ class NewUserForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn) {
-      this.handleLeave("/home");
+      this.handleLeave();
+      this.props.history.push("/home");
     }
   }
 
@@ -29,7 +30,7 @@ class NewUserForm extends React.Component {
   handleLeave(destination) {
     this.setState({slide: "fadeOutUp"});
     this.setState({modal: "fadeOut"});
-    setTimeout(()=>{this.props.history.push(destination);}, 700);
+    setTimeout(()=>{this.props.hideModal();}, 700);
   }
 
   update(field) {
@@ -78,9 +79,8 @@ class NewUserForm extends React.Component {
             <br></br>
             <input type="submit" value="Sign Up!" className="submit-button"/>
           </div>
-          <a onClick={(e) => (e.preventDefault(), this.handleLeave('/login'))} className="leave"> Trying to login? </a>
         <br></br>
-        <a onClick={(e) => (e.preventDefault(), this.handleLeave('/welcome'))} className="closing-x">X</a>
+        <a onClick={(e) => (e.preventDefault(), this.handleLeave())} className="closing-x">X</a>
       </form>
       </div>
     );

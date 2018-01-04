@@ -1,7 +1,14 @@
 import React from 'react';
 
 class ModalComponent extends React.Component {
-  render() { debugger
+
+  constructor(props) {
+    super(props),
+    this.state = {
+      component: this.props.component
+    }
+  }
+  render() {
     if (!this.props.component) {
       return null;
     } else {

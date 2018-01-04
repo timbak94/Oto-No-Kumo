@@ -11,8 +11,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
+    hideModal: ()=> dispatch(ownProps.hideModal()),
     signUpUser: (user) => dispatch(signUpUser(user)),
     clearErrors: () => dispatch(clearErrors())
   };

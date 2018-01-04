@@ -5,15 +5,15 @@ import { logInUser, clearErrors } from '../../actions/session_actions';
 import NewSessionForm from './new_session';
 
 const mapStateToProps = (state) => {
-  debugger
   return {
     loggedIn: Boolean(state.session.currentUser),
     errors: state.errors.session
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
+    hideModal: ()=> dispatch(ownProps.hideModal()),
     logInUser: (user) => dispatch(logInUser(user)),
     clearErrors: () => dispatch(clearErrors())
   };

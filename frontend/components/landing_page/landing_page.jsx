@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import Slideshow from './slideshow';
 import NewSessionContainer from '../sessions/new_session_container';
 import NewUserContainer from '../users/new_user_container';
+import { hideModal } from '../../modal/actions_reducers'
 
 class LandingPage extends React.Component {
 
@@ -16,10 +17,10 @@ class LandingPage extends React.Component {
               <h1>Oto no Kumo</h1>
             </li>
             <li>
-              <button onClick={ this.props.showModal(<NewSessionContainer />)}>Login</button>
+              <button onClick={(e) => {e.preventDefault(), this.props.showModal(<NewSessionContainer hideModal={hideModal}/>)}}>Login</button>
             </li>
             <li>
-              <button>Sign Up</button>
+              <button onClick={(e) => {e.preventDefault(), this.props.showModal(<NewUserContainer hideModal={hideModal}/>)}}>Sign Up</button>
             </li>
           </ul>
           <Slideshow />

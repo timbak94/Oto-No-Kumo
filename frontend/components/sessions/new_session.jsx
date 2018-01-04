@@ -16,7 +16,8 @@ class NewSessionForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn) {
-      this.handleLeave("/home");
+      this.handleLeave();
+      this.props.history.push("/home");
     }
   }
 
@@ -24,10 +25,10 @@ class NewSessionForm extends React.Component {
     this.props.clearErrors();
   }
 
-  handleLeave(destination) {
+  handleLeave() {
     this.setState({slide: "fadeOutUp"});
     this.setState({modal: "fadeOut"});
-    setTimeout(()=>{this.props.history.push(destination);}, 700);
+    setTimeout(()=>{this.props.hideModal()}, 700)
   }
 
   update(field) {
@@ -73,9 +74,8 @@ class NewSessionForm extends React.Component {
             </label>
             <input type="submit" value="Log In!" className="submit-button"/>
           </div>
-          <a onClick={(e) => (e.preventDefault(), this.handleLeave('/signup'))} className="leave"> Trying to sign up? </a>
         <br></br>
-        <a onClick={(e) => (e.preventDefault(), this.handleLeave('/welcome'))} className="closing-x">X</a>
+        <a onClick={(e) => (e.preventDefault(), this.handleLeave())} className="closing-x">X</a>
         </form>
       </div>
     );

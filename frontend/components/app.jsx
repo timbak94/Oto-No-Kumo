@@ -13,20 +13,21 @@ import GreetingContainer from './greeting/greeting_container';
 import NewUserContainer from './users/new_user_container';
 import LandingPageContainer from "./landing_page/landing_page_container";
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import ModalComponent from '../modal/modal_component';
+import HomeContainer from './home/home_container'
+import ModalContainer from '../modal/modal_container';
 
 const App = () => {
   return(
     <div>
+      <ModalContainer />
       <header>
         <GreetingContainer />
       </header>
       <section className="main-body">
 
-        <ModalComponent />
         <Switch>
-          <Route path="/welcome" component={LandingPageContainer}/>
-          <Route path="/home"/>
+          <AuthRoute path="/welcome" component={LandingPageContainer}/>
+          <ProtectedRoute path="/home" component={HomeContainer}/>
           <Route path="/collection"/>
         </Switch>
       </section>
