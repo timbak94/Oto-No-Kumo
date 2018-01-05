@@ -62,7 +62,7 @@ class NewUserForm extends React.Component {
   render() {
     return (
       <div className="sign-form-container">
-        <section className={`modal-screen animated ${this.state.modal}`}></section>
+        <section className={`modal-screen animated ${this.state.modal}`} onClick={(e) => (e.preventDefault(), this.handleLeave())}></section>
         <form onSubmit={this.handleSubmit} className={`SignUpForm animated ${this.state.slide}`}>
           <h1> Create your Oto no Kumo Account </h1>
           <h3>{this.renderErrors()}</h3>

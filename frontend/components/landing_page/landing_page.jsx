@@ -11,20 +11,20 @@ class LandingPage extends React.Component {
     return (
       <section className="landing">
         <nav>
+          <section className="landing-logo">
+            <i className="fa fa-mixcloud" id="landing-logo" aria-hidden="true"></i>
+            <h1 id="logo-name">OTO NO KUMO</h1>
+          </section>
           <ul>
-            <li className="landing-logo">
-              <i className="fa fa-mixcloud" id="landing-logo" aria-hidden="true"></i>
-              <h1>Oto no Kumo</h1>
-            </li>
             <li>
               <button onClick={(e) => {e.preventDefault(), this.props.showModal(<NewSessionContainer hideModal={hideModal}/>)}}>Login</button>
             </li>
             <li>
-              <button onClick={(e) => {e.preventDefault(), this.props.showModal(<NewUserContainer hideModal={hideModal}/>)}}>Sign Up</button>
+              <button id="signup-button" onClick={(e) => {e.preventDefault(), this.props.showModal(<NewUserContainer hideModal={hideModal}/>)}}>Create Account</button>
             </li>
           </ul>
-          <Slideshow />
         </nav>
+        <Slideshow />
 
       </section>
     );

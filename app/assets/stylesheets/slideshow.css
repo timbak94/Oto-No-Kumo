@@ -1,0 +1,32 @@
+
+.slideshow {
+  overflow: hidden;
+}
+
+.slideshow-content {
+  margin-left: 280px;
+  padding-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  width: 1500px;
+  height: 200px;
+}
+
+.slideshow-nav {
+  justify-content: center;
+  margin: 10px;
+}
+
+.slideshow-nav i {
+  margin: 10px ;
+}
+
+.slide-one {
+  font-weight: bold;
+  color: #9370DB;
+}
+
+.slide-two {
+  font-weight: bold;
+  color: #9370DB;
+}

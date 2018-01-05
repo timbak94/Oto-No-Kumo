@@ -27,8 +27,13 @@ class Slideshow extends React.Component {
     return (
       <div className="slideshow">
         <section className={`slideshow-content animated ${this.state.show_one}`}>
-          <h1> HELLLLLOOOOOOO </h1>
-          <h1> GOODBYE </h1>
+          <section className="slide-one">
+            <h1> ANIME MUSIC? WE GOT IT. </h1>
+            
+          </section>
+          <section className="slide-two">
+            <h1> VIDEO GAME MUSIC? WE GOT IT TOO. </h1>
+          </section>
         </section>
         <ul className="slideshow-nav">
           <li>

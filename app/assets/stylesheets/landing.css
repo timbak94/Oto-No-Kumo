@@ -1,6 +1,53 @@
+.landing {
+  border-top: 5px solid rgba(200, 255, 255, 1);
+  color: white;
+  width: 1000px;
+  height: 400px;
+  background-image: url("https://68.media.tumblr.com/363849cfac1751bc67b708d9068c346c/tumblr_o0yswqKVsC1r0isubo1_1280.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 #landing-logo {
+  margin-left: 10px;
   background: none;
   font-size: 40px;
+}
+
+#signup-button {
+  background-color: #9370DB;
+}
+
+.landing ul {
+  display: flex;
+  left: 10px;
+}
+
+.landing nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.landing button {
+  font-family: 'Julius Sans One', sans-serif;
+  font-weight: lighter;
+  font-size: 15px;
+  height: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 15px 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+
+}
+
+#logo-name {
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .landing h1 {
@@ -9,39 +56,31 @@
 }
 
 .landing-logo {
+  text-shadow: 2px 2px 2px #00ccff;
   display: flex;
   align-items: center;
 }
 
-.slidshow {
-  width: 1000px;
-  overflow: hidden;
-}
 
 .fa-circle {
-  color: black;
+  color: white;;
 }
 
 .checked {
-  color: red;
+  color: #9370DB;
 }
 
 #landing-button {
   font-size: 10px;
 }
 
-.slideshow-content {
-  display: flex;
-  justify-content: space-between;
-  width: 900px;
-}
 
 .slideLeft {
-  transform: translateX(200px);
-  transition: all .5s ease
+  transform: translateX(0px);
+  transition: all .8s ease
 }
 
 .slideRight {
-  transform: translateX(-200px);
-  transition: all .5s ease
+  transform: translateX(-980px);
+  transition: all .8s ease
 }
