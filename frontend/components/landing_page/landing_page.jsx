@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import Slideshow from './slideshow';
 import NewSessionContainer from '../sessions/new_session_container';
 import NewUserContainer from '../users/new_user_container';
-import { hideModal } from '../../modal/actions_reducers'
+import { hideModal } from '../../modal/actions_reducers';
 
 class LandingPage extends React.Component {
 

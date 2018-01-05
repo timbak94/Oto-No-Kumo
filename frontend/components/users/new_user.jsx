@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { CSSTransitionGroup } from 'react-transition-group';
 
 class NewUserForm extends React.Component {
   constructor(props) {
@@ -27,7 +26,7 @@ class NewUserForm extends React.Component {
     this.props.clearErrors();
   }
 
-  handleLeave(destination) {
+  handleLeave() {
     this.setState({slide: "fadeOutUp"});
     this.setState({modal: "fadeOut"});
     setTimeout(()=>{this.props.hideModal();}, 700);

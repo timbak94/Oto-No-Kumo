@@ -1,11 +1,17 @@
 class User < ApplicationRecord
-  validates :username, :password_digest, :session_token, :avatar_url, presence: true
+  validates :username, :password_digest, :session_token, presence: true
   validates :username, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
-  after_initialize :ensure_session_token, :ensure_avatar
+  after_initialize :ensure_session_token
+
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "missing-avatar.png"
+
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   attr_reader :password
+
+  has_many :tracks, class_name: 'Track', primary_key: :id, foreign_key: :author_id
 
   def self.find_by_credentials(username, pass)
     user = User.find_by(username: username)
@@ -13,10 +19,6 @@ class User < ApplicationRecord
       return user
     end
     nil
-  end
-
-  def ensure_avatar
-    self.avatar_url = "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg" unless self.avatar_url
   end
 
   def password=(password)

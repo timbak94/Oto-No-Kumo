@@ -28,7 +28,7 @@ const personalGreeting = (currentUser, logout) => {
           </form>
         </li>
         <li>
-          <Link to="albums/new" className="nav-link">Upload</Link>
+          <Link to="/upload" className="nav-link">Upload</Link>
         </li>
         <li id="prof">
           <img src={currentUser.avatar_url} className="avatar"/>
