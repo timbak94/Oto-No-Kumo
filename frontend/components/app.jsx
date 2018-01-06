@@ -16,6 +16,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import HomeContainer from './home/home_container';
 import TrackShowContainer from './tracks/track_show_container';
 import ModalContainer from '../modal/modal_container';
+import UploadContainer from './tracks/upload_container';
 
 const App = () => {
   return(
@@ -35,6 +36,7 @@ const App = () => {
           <ProtectedRoute path="/tracks/:userId/:trackId" component={TrackShowContainer}/>
           <Route path="/collection"/>
         </Switch>
+        <ProtectedRoute path="/upload" component={UploadContainer}/>
       </section>
     </div>
   );

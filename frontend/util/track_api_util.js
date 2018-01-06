@@ -6,18 +6,23 @@ export const getTrack = (trackId) => {
   });
 };
 
-export const createTrack = (track) => {
+export const createTrack = (formData) => {
   return $.ajax({
    method: 'POST',
-   url: `/api/users/${track.author_id}/tracks`,
-   data: { track }
+   url: `/api/users/${formData.get("track[author_id]")}/tracks`,
+   contentType: false,
+   processData: false,
+   data: formData
  });
 };
 
-export const editTrack = (track) => {
+export const editTrack = (formData) => {
   return $.ajax({
     method: 'PATCH',
-    url: `api/tracks/${track.id}`
+    url: `api/tracks/${formData.get("id")}`,
+    contentType: false,
+    processData: false,
+    data: formData
   });
 };
 

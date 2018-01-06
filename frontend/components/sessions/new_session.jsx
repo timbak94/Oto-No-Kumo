@@ -8,7 +8,7 @@ class NewSessionForm extends React.Component {
     this.state = {
       username: '',
       password: '',
-      slide: "fadeInDown",
+      slide: "bounceInDown",
       modal: "fadeIn"
     };
     this.handleSubmit = this.handleSubmit.bind(this);

@@ -1,0 +1,12 @@
+.track-form {
+  box-shadow: 10px 10px 10px #DFBFFF;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  margin-left: -280px;
+  width: 500px;
+  padding: 20px;
+  background: #fff;
+  z-index: 3;
+  border-radius: 5px;
+}

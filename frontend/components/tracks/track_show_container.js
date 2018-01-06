@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { requestSingleTrack, deleteTrack } from '../../actions/track_actions';
+import {showModal} from '../../modal/actions_reducers';
 import TrackShow from './track_show';
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,7 +15,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     requestSingleTrack: (id) => dispatch(requestSingleTrack(id)),
-    deleteTrack: (id) => dispatch(deleteTrack(id))
+    deleteTrack: (id) => dispatch(deleteTrack(id)),
+    showModal: (comp) => {dispatch(showModal(comp));}
   };
 
 };

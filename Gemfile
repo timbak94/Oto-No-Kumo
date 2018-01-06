@@ -35,6 +35,8 @@ gem 'jquery-rails'
 gem 'aws-sdk', '< 3.0'
 gem "paperclip", "~> 5.0.0"
 gem "figaro"
+gem 'pry-rails'
+gem 'ruby-mp3info', :require => 'mp3info'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a  console
@@ -44,7 +46,6 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'pry-rails'
   gem 'annotate'
   gem 'bcrypt'
   gem 'jquery-rails'

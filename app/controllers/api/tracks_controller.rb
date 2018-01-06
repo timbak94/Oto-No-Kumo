@@ -18,9 +18,10 @@ class Api::TracksController < ApplicationController
   end
 
   def update
-    @track = Track.find(params[:id].to_i)
+    @track = Track.find(params[:id])
 
     if @track
+      debugger
       @track.update(track_params)
       render :show
     else
@@ -36,6 +37,6 @@ class Api::TracksController < ApplicationController
   end
 
   def track_params
-    params.require(:track).permit(:title, :description, :author_id, :genre)
+    params.require(:track).permit(:title, :description, :author_id, :genre, :image, :track_url)
   end
 end
