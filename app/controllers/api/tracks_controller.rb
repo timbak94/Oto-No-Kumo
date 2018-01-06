@@ -21,7 +21,6 @@ class Api::TracksController < ApplicationController
     @track = Track.find(params[:id])
 
     if @track
-      debugger
       @track.update(track_params)
       render :show
     else
