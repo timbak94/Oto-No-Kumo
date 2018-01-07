@@ -4,8 +4,9 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :username
       t.string :password_digest
       t.string :session_token
-    
+
       t.timestamps
     end
+    add_attachment :tracks, :image
   end
 end

@@ -8,5 +8,8 @@ class CreateTracks < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
+
+    add_attachment :tracks, :image
+    add_attachment :tracks, :track_url
   end
 end
