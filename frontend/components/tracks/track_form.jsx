@@ -108,7 +108,7 @@ class TrackForm extends React.Component {
       <div className="track-form-container">
           <section className={`modal-screen animated ${this.state.modal} ${this.state.visible}`} onClick={(e) => (e.preventDefault(), this.handleLeave())}></section>
         <form onSubmit={this.handleSubmit} className={`track-form animated ${this.state.slide}`}>
-          <h1> Add a track </h1>
+          <h1> {this.state.message} </h1>
           <h3>{this.renderErrors()}</h3>
           <img src={this.state.image_url} className={"track-cover"}></img>
           <div className="track-fields">

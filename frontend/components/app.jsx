@@ -17,6 +17,7 @@ import HomeContainer from './home/home_container';
 import TrackShowContainer from './tracks/track_show_container';
 import ModalContainer from '../modal/modal_container';
 import UploadContainer from './tracks/upload_container';
+import MusicPlayerContainer from './music_player/music_player_container';
 
 const App = () => {
   return(
@@ -38,6 +39,9 @@ const App = () => {
         </Switch>
         <ProtectedRoute path="/upload" component={UploadContainer}/>
       </section>
+      <footer>
+        <MusicPlayerContainer />
+      </footer>
     </div>
   );
 };
