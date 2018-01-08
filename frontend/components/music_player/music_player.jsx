@@ -1,5 +1,6 @@
 import React from 'react';
 import Sound from 'react-sound';
+import { Link, withRouter } from 'react-router-dom';
 
 class MusicPlayer extends React.Component {
   constructor(props) {
@@ -48,19 +49,37 @@ class MusicPlayer extends React.Component {
   whichButton() {
     if (this.state.playStatus === Sound.status.PLAYING) {
       return (<button onClick={this.handlePause}>Pause</button>);
-    } else if (this.state.playStatus === Sound.status.PAUSED) {
+    } else if (this.state.playStatus === Sound.status.PAUSED || Sound.status.STOPPED) {
       return (<button onClick={this.handlePlay}>Play</button>);
     }
   }
 
+  visible() {
+    return this.props.song ? "" : "hidden";
+  }
+
+  songInfo() {
+    if (this.props.song) {
+      return (
+        <section>
+          <img src={this.props.song.image_url} className="player-image"></img>
+          <ul>
+            <li>{this.props.song.title}
+            </li>
+          </ul>
+        </section>
+      );
+    }
+  }
 
   render() {
     return (
       <div>
-        <section className={"footer-music-player"}>
+        <section className={`footer-music-player ${this.visible()}`}>
           <h1>"this is where the music player would be"</h1>
           {this.songMaker()}
           {this.whichButton()}
+          {this.songInfo()}
         </section>
       </div>
     );
@@ -68,4 +87,4 @@ class MusicPlayer extends React.Component {
 }
 
 
-export default MusicPlayer;
+export default withRouter(MusicPlayer);

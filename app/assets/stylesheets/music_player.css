@@ -3,3 +3,13 @@
   position: fixed;
   bottom: 0;
 }
+
+.hidden {
+  visibility: none;
+}
+
+.player-image {
+  height: 40px;
+  width: 40px;
+  z-index: 2000000;
+}
