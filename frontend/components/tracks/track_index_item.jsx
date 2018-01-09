@@ -4,22 +4,36 @@ import { Link, withRouter } from 'react-router-dom';
 class TrackIndexItem extends React.Component {
   constructor(props) {
     super(props);
+    this.handleStart = this.handleStart.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
+    this.handlePause = this.handlePause.bind(this);
+  }
+
+  handleStart(e) {
+    e.preventDefault();
+    this.props.requestCurrentSong(this.props.track);
   }
 
   handlePlay(e) {
     e.preventDefault();
-    this.props.requestCurrentSong(this.props.track);
+    this.props.playSong();
+  }
+
+  handlePause(e) {
+    e.preventDefault();
+    this.props.pauseSong();
   }
 
   whichButton() {
     if (this.props.track) {
       if (this.props.currentSong) {
         if (this.props.currentSong.id === this.props.track.id) {
-
-        }
+          if (this.props.status === "paused") {
+            return ( <button onClick={this.handlePlay}> Play </button> );
+          } else { return ( <button onClick={this.handlePause}> Pause </button> ); }
+        } else { return ( <button onClick={this.handleStart}> Start </button> ); }
       } else {
-        return ( <button onClick={this.handlePlay}> </button> );
+        return ( <button onClick={this.handleStart}> Start </button> );
       }
     }
   }

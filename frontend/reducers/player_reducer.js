@@ -18,10 +18,7 @@ const playerReducer = (oldState = {currentSong: null, status: "playing"}, action
       newState = merge({}, oldState, {status: "stopped"});
       return newState;
     case PAUSE_SONG:
-      console.log(newState);
-      console.log(oldState);
       newState = merge({}, oldState, {status: "paused"});
-      console.log(newState);
       return newState;
     default:
       return oldState;
