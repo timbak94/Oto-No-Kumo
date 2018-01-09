@@ -10,6 +10,16 @@ class TrackShow extends React.Component {
     this.handlePlay = this.handlePlay.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.track) {
+      if (nextProps.match.path === "/users/:userId/:trackId") {
+        if (parseInt(nextProps.match.params.trackId) !== this.props.track.id) {
+          this.props.requestSingleTrack(nextProps.match.params.trackId);
+        }
+      }
+    }
+  }
+
   componentDidMount(){
     if (!this.props.track) {
       this.props.requestSingleTrack(parseInt(this.props.trackId));
