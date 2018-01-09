@@ -103,6 +103,8 @@ class MusicPlayer extends React.Component {
     this.audioPlayer.volume = 0.5;
   }
 
+
+// HEY U GOTTA CHANGE THIS SEEKING TO MAKE IT STORE-BASED, THAT WAY THE OTHER COMPONENTS CAN AFFECT SEEKING YOU IDIOT
   handleSeek(e) {
     e.preventDefault();
     this.audioPlayer.currentTime = e.target.value;
