@@ -3,6 +3,7 @@ export const PLAY_SONG = "PLAY_SONG";
 export const STOP_SONG = "STOP_SONG";
 export const NEXT_SONG = "NEXT_SONG";
 export const PAUSE_SONG = "PAUSE_SONG";
+export const SEEK_SONG = "SEEK_SONG";
 
 export const requestCurrentSong = (song) => {
   return {
@@ -32,5 +33,12 @@ export const nextSong = () => {
 export const pauseSong = () => {
   return {
     type: PAUSE_SONG
+  };
+};
+
+export const seekSong = (time) => {
+  return {
+    type: SEEK_SONG,
+    time: time
   };
 };

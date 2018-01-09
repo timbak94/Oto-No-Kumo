@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
     title: "",
     description: "",
     genre: "",
-    image_url: "",
+    image_url: null,
     song_url: "",
     track: ownProps.trackFile};
 
@@ -27,7 +27,7 @@ const mapStateToProps = (state, ownProps) => {
     type: type,
     track: track,
     tracksLength: keys.length,
-    lastTrackId: lastId
+    lastTrackId: lastId,
   };
 
 };

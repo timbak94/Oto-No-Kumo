@@ -13,3 +13,29 @@
   width: 40px;
   z-index: 2000000;
 }
+
+.progress-bar {
+  display: flex;
+  width: 500px;
+}
+
+.progress-box {
+  position:relative;
+  flex:1;
+  background-color: transparent;
+  height: 10px;
+  font-size: .001px;
+  color: white;
+}
+
+#progress-behind {
+  position:relative;
+  background-color: yellow;
+  height: 10px;
+  width: .000005px;
+  margin-top: -10px;
+}
+
+audio::-webkit-media-controls-play-button {
+  color: red;
+}

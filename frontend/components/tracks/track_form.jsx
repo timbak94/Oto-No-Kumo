@@ -103,6 +103,14 @@ class TrackForm extends React.Component {
     }
   }
 
+  showImage() {
+    if (this.state.image_url) {
+      return (<img src={this.state.image_url} className={"track-cover"}></img>);
+    } else {
+      return (<img className={"track-cover"}></img>);
+    }
+  }
+
   render() {
     return (
       <div className="track-form-container">
@@ -110,7 +118,8 @@ class TrackForm extends React.Component {
         <form onSubmit={this.handleSubmit} className={`track-form animated ${this.state.slide}`}>
           <h1> {this.state.message} </h1>
           <h3>{this.renderErrors()}</h3>
-          <img src={this.state.image_url} className={"track-cover"}></img>
+          {this.showImage()}
+
           <div className="track-fields">
             <input type="file" onChange={this.updateFile} />
             <label> Title

@@ -10,3 +10,9 @@
   z-index: 3;
   border-radius: 5px;
 }
+
+.track-cover {
+  height: 260px;
+  width: 260px;
+  background: linear-gradient(to bottom right, #846070, #70929c);
+}
