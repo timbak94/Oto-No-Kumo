@@ -16,13 +16,16 @@ class MusicPlayer extends React.Component {
     this.state = {
       playStatus: status,
       currentTime: 0,
-      songLength: 0,
+      length: 1,
     };
     this.handlePlay = this.handlePlay.bind(this);
     this.handlePause = this.handlePause.bind(this);
     this.handleProgressClick = this.handleProgressClick.bind(this);
     this.handleTime = this.handleTime.bind(this);
     this.handleDuration = this.handleDuration.bind(this);
+    this.handleSeek = this.handleSeek.bind(this);
+    this.handleVolume = this.handleVolume.bind(this);
+    this.setStatus = this.setStatus.bind(this);
     // this.barIncrement = this.barIncrement.bind(this);
   }
 
@@ -30,8 +33,10 @@ class MusicPlayer extends React.Component {
     if (nextProps.status === "paused") {
       this.audioPlayer.pause();
     }
+    if (nextProps.status === "playing") {
+      this.audioPlayer.play();
+    }
   }
-
 
 
   handlePlay(e) {
@@ -52,9 +57,10 @@ class MusicPlayer extends React.Component {
 
 
   whichButton() {
-    if (this.props.status === "playing") {
+    if (this.state.playStatus === "playing" || this.state.playStatus === "start") {
       return (<button onClick={this.handlePause}>Pause</button>);
-    } else if (this.props.status === "paused" || "stopped") {
+    }
+    if (this.state.playStatus === "paused") {
       return (<button onClick={this.handlePlay}>Play</button>);
     }
   }
@@ -84,12 +90,27 @@ class MusicPlayer extends React.Component {
 
   handleTime() {
     if (this.audioPlayer) {
-      console.log(this.audioPlayer.currentTime);
+      this.props.updateTime(this.audioPlayer.currentTime, this.audioPlayer.duration);
     }
   }
 
+  setStatus(target) {
+    this.setState({playStatus: target});
+  }
+
   handleDuration() {
-    console.log("LOADED");
+    this.setState({length: this.audioPlayer.duration});
+    this.audioPlayer.volume = 0.5;
+  }
+
+  handleSeek(e) {
+    e.preventDefault();
+    this.audioPlayer.currentTime = e.target.value;
+  }
+
+  handleVolume(e) {
+    e.preventDefault();
+    this.audioPlayer.volume = e.target.value/100;
   }
 
   render() {
@@ -97,10 +118,25 @@ class MusicPlayer extends React.Component {
       return (
         <div>
           <section className={`footer-music-player ${this.visible()}`}>
-            <audio id="audio" src={this.props.song.song_url} autoPlay onLoad={this.handleDuration} onTimeUpdate={this.handleTime} ref={(audio) => { this.audioPlayer = audio; }}></audio>
+            <audio
+              id="audio"
+              src={this.props.song.song_url}
+              autoPlay
+              onLoadedData={this.handleDuration}
+              onTimeUpdate={this.handleTime}
+              onPause={(e) => {e.preventDefault(); this.setStatus("paused");}}
+              onPlay={(e) => {e.preventDefault(); this.setStatus("playing");}}
+              ref={(audio) => { this.audioPlayer = audio; }}
+              />
             <h1>"this is where the music player would be"</h1>
             {this.whichButton()}
             {this.songInfo()}
+            <h1>{this.props.current}</h1>
+            <div className="slidecontainer" >
+              <input onChange={this.handleSeek} type="range" min="0" max={this.state.length} value={this.props.current ? this.props.current : "0"} className="slider" id="myRange" />
+            </div>
+            <h1>{this.props.remaining}</h1>
+            <input onChange={this.handleVolume} type="range" min="0" max="100" defaultValue="50" className="volume-slider" />
           </section>
         </div>
       );

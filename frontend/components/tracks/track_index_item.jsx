@@ -7,6 +7,13 @@ class TrackIndexItem extends React.Component {
     this.handleStart = this.handleStart.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
     this.handlePause = this.handlePause.bind(this);
+    this.authorInfo = this.authorInfo.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.author === undefined) {
+      this.props.fetchSingleUser(this.props.track.author_id);
+    }
   }
 
   handleStart(e) {
@@ -38,6 +45,14 @@ class TrackIndexItem extends React.Component {
     }
   }
 
+  authorInfo() {
+    if (this.props.author) {
+      return (<Link to={`/users/${this.props.author.id}`}>
+        <li key={this.props.author.id}>{this.props.author.username}</li>
+      </Link>);
+    }
+  }
+
   render() {
     if (this.props.style === "big-list") {
       return (
@@ -48,6 +63,7 @@ class TrackIndexItem extends React.Component {
           <Link to={`/tracks/${this.props.track.author_id}/${this.props.track.id}`}>
             <li key={this.props.track.id} >{this.props.track.title}</li>
           </Link>
+          {this.authorInfo()}
           {this.whichButton()}
         </div>
       );

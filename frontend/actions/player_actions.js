@@ -4,6 +4,7 @@ export const STOP_SONG = "STOP_SONG";
 export const NEXT_SONG = "NEXT_SONG";
 export const PAUSE_SONG = "PAUSE_SONG";
 export const SEEK_SONG = "SEEK_SONG";
+export const UPDATE_TIME = "UPDATE_TIME";
 
 export const requestCurrentSong = (song) => {
   return {
@@ -39,6 +40,14 @@ export const pauseSong = () => {
 export const seekSong = (time) => {
   return {
     type: SEEK_SONG,
-    time: time
+    time
+  };
+};
+
+export const updateTime = (current, remaining) => {
+  return {
+    type: UPDATE_TIME,
+    current,
+    remaining
   };
 };

@@ -11,6 +11,16 @@ class UserShow extends React.Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.user) {
+      if (nextProps.match.path === "/users/:userId") {
+        if (parseInt(nextProps.match.params.userId) !== this.props.user.id) {
+          this.props.fetchSingleUser(nextProps.match.params.userId);
+        }
+      }
+    }
+  }
+
   componentDidMount() {
     this.props.fetchSingleUser(this.props.headUser);
   }
