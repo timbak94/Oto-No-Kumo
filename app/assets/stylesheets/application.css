@@ -19,8 +19,8 @@ body {
 }
 
 .main-body {
-  width: 1000px;
-  min-height: 1000px;
+  width: 1240px;
+  min-height: 600px;
   background-color: white;
   margin: auto;
 }
@@ -113,12 +113,7 @@ body {
   color: #FF9EDB;
 }
 
-#logo {
-  font-size: 30px;
-  background: linear-gradient(to bottom right, #9370DB, #7FF8FF);
-  color: white;
-  padding: 3px 10px;
-}
+
 
 .hidden {
   visibility: hidden;

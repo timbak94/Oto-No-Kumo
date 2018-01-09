@@ -1,6 +1,5 @@
 .navbar-container {
   background-color: #383838;
-  box-shadow: 0px 5px 10px #DFBFFF
 }
 
 .navbar {
@@ -8,9 +7,10 @@
   font-weight: bold;
   margin: auto;
   display: flex;
-  width: 1000px;
+  width: 1240px;
   justify-content: space-between;
   align-items: center;
+  height: 46px;
 }
 
 .navbar li {
@@ -20,7 +20,7 @@
 .navbar li form input {
   width: 400px;
   height: 17px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
   padding: 0px 5px;
   font-size: 10px;
@@ -69,5 +69,11 @@
 }
 .header-button:hover {
   background-color: #DFBFFF;
-  
+}
+
+#logo {
+  font-size: 30px;
+  background: linear-gradient(to bottom right, #9370DB, #7FF8FF);
+  color: white;
+  height: 100%;
 }

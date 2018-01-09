@@ -132,7 +132,7 @@ class MusicPlayer extends React.Component {
             {this.whichButton()}
             {this.songInfo()}
             <h1>{this.props.current}</h1>
-            <div className="slidecontainer" >
+            <div className="slidecontainer">
               <input onChange={this.handleSeek} type="range" min="0" max={this.state.length} value={this.props.current ? this.props.current : "0"} className="slider" id="myRange" />
             </div>
             <h1>{this.props.remaining}</h1>

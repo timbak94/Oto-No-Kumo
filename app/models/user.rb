@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   attr_reader :password
-
+  has_many :comments, class_name: 'Comment', primary_key: :id, foreign_key: :author_id
   has_many :tracks, class_name: 'Track', primary_key: :id, foreign_key: :author_id
 
   def self.find_by_credentials(username, pass)
