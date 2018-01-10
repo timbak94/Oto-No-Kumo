@@ -1,0 +1,48 @@
+.upload-container {
+  padding-top: 100px;
+  text-align: center;
+
+}
+
+.file-button {
+  background-color: red;
+}
+
+.move-up {
+  transform: translateY(-75px) scale(0.7);
+  transition: all .3s
+}
+
+.norm{
+  transition: all .3s
+}
+
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.real-button {
+  border: none;
+  color: white;
+  background-color: #ee512f;
+  padding: 8px 20px;
+  border-radius: 3px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.upload-container h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}

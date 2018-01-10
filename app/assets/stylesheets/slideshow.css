@@ -4,11 +4,11 @@
 }
 
 .slideshow-content {
-  margin-left: 280px;
+  margin-left: 400px;
   padding-top: 100px;
   display: flex;
   justify-content: space-between;
-  width: 1500px;
+  width: 1490px;
   height: 200px;
 }
 
@@ -22,11 +22,11 @@
 }
 
 .slide-one {
-  font-weight: bold;
-  color: #9370DB;
+  font-weight: lighter;
+  color: white;
 }
 
 .slide-two {
-  font-weight: bold;
-  color: #9370DB;
+  font-weight: lighter;
+  color: white;
 }

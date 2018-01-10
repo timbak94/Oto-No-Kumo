@@ -1,6 +1,6 @@
 import { SHOW_MODAL, HIDE_MODAL } from './actions_reducers'
 
-const modalReducer = (state = {}, action) => {
+const modalReducer = (state = {component: null}, action) => {
   switch(action.type) {
     case SHOW_MODAL: {
       return {component: action.component};

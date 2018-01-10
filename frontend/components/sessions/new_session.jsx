@@ -9,7 +9,8 @@ class NewSessionForm extends React.Component {
       username: '',
       password: '',
       slide: "bounceInDown",
-      modal: "fadeIn"
+      modal: "fadeIn",
+      errors: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -60,22 +61,21 @@ class NewSessionForm extends React.Component {
   render() {
     return (
       <div className="sign-form-container">
-          <section className={`modal-screen animated ${this.state.modal}`} onClick={(e) => (e.preventDefault(), this.handleLeave())}></section>
+          <section className={`modal-screen animated ${this.state.modal}`} onClick={(e) => (e.preventDefault(), this.handleLeave())}><div id="closingx">x</div></section>
+          <h1></h1>
         <form onSubmit={this.handleSubmit} className={`SignUpForm animated ${this.state.slide}`}>
-          <h1> Log Into your Oto no Kumo Account </h1>
           <h3>{this.renderErrors()}</h3>
           <div className="SignUpFields">
-            <label> Username
-              <input type="text" value={this.state.username} onChange={this.update('username')} className="signup-input" />
+            <label>
+              <input placeholder="Your Username" type="text" value={this.state.username} onChange={this.update('username')} className={`signup-input ${this.state.errors}`} />
             </label>
             <br/>
-            <label> Password
-              <input type="password" value={this.state.password} onChange={this.update('password')} className="signup-input" />
+            <label>
+              <input type="password" placeholder="Your Password" value={this.state.password} onChange={this.update('password')} className={`signup-input ${this.state.errors}`} />
             </label>
             <input type="submit" value="Log In!" className="submit-button"/>
           </div>
         <br></br>
-        <a onClick={(e) => (e.preventDefault(), this.handleLeave())} className="closing-x">X</a>
         </form>
       </div>
     );

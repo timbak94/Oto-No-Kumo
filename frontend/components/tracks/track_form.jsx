@@ -117,34 +117,46 @@ class TrackForm extends React.Component {
           <section className={`modal-screen animated ${this.state.modal} ${this.state.visible}`} onClick={(e) => (e.preventDefault(), this.handleLeave())}></section>
         <form onSubmit={this.handleSubmit} className={`track-form animated ${this.state.slide}`}>
           <h1> {this.state.message} </h1>
-          <h3>{this.renderErrors()}</h3>
-          {this.showImage()}
+          <div className="track-form-not-buttons">
+            <div className="track-form-image">
+              <div className="upload-btn-wrapper">
+                {this.showImage()}
+                <button className="real-avatar-button"> <i class="fa fa-camera" aria-hidden="true"></i> Update Image </button>
+                <input className="file-button-avatar" type="file" onChange={this.updateFile} />
+              </div>
+            </div>
+            <h3>{this.renderErrors()}</h3>
 
-          <div className="track-fields">
-            <input type="file" onChange={this.updateFile} />
-            <label> Title
-              <input type="text" value={this.state.title} onChange={this.update('title')} className="track-form-title" />
-            </label>
-            <br/>
-            <label> Description
-              <input type="text" value={this.state.description} onChange={this.update('description')} className="track-form-description" />
-            </label>
-            <br></br>
-            <label> Genre
-              <select
-                value={this.state.genre}
-                onChange={this.update('genre')}
-                defaultValue={"Genre"}
-                >
-                {GENRES.map((type, i) => {
-                  return <option value={type} key={i}>{type}</option>;
-                  })}
-                </select>
-            </label>
+            <div className="track-fields">
+              <label> Title
+                <br></br>
+                <input type="text" value={this.state.title} onChange={this.update('title')} className="track-form-title" />
+              </label>
+              <br/>
+              <label> Genre
+                <br></br>
+                <select
+                  value={this.state.genre}
+                  onChange={this.update('genre')}
+                  defaultValue={"Rock"}
+                  >
+                  {GENRES.map((type, i) => {
+                    return <option value={type} key={i}>{type}</option>;
+                    })}
+                  </select>
+              </label>
+              <br/>
+              <label> Description
+                <br></br>
+                <input type="text" value={this.state.description} onChange={this.update('description')} className="track-form-description" />
+              </label>
+              <br></br>
+              </div>
+          </div>
+          <div className="track-bottom-buttons">
             <input type="submit" value={this.props.type === "edit" ? "Save changes" : "Save"} className="track-form-submit"/>
             <button onClick={(e) => (e.preventDefault(), this.handleLeave())} className="close-track-form">Cancel</button>
           </div>
-        <br></br>
         </form>
       </div>
     );

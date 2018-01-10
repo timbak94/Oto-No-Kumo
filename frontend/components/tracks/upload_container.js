@@ -4,7 +4,7 @@ import {showModal} from '../../modal/actions_reducers';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    state
+    modals: state.modals.component
   };
 };
 

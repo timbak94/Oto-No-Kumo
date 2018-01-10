@@ -1,13 +1,12 @@
 .landing {
-  border-top: 5px solid rgba(200, 255, 255, 1);
+  margin-right:10px;
+  border-top: 4px solid #ee512f;
   color: white;
-  width: 1000px;
-  height: 400px;
-  background-image: url("https://68.media.tumblr.com/363849cfac1751bc67b708d9068c346c/tumblr_o0yswqKVsC1r0isubo1_1280.jpg");
+  width: 1240px;
+  height: 450px;
+  background-image: url("https://a-v2.sndcdn.com/assets/images/home/hp_image-6155d6b.jpg");
   background-repeat: no-repeat;
   background-position: center;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
 }
 
 #landing-logo {
@@ -17,7 +16,13 @@
 }
 
 #signup-button {
-  background-color: #9370DB;
+  margin-right: 25px;
+  background-color: #ee512f;
+  border: none;
+}
+
+#singup-button:hover {
+  border: none;
 }
 
 .landing ul {
@@ -33,20 +38,27 @@
 .landing button {
   font-family: 'Julius Sans One', sans-serif;
   font-weight: lighter;
-  font-size: 15px;
+  font-size: 13px;
   height: 30px;
   padding-left: 15px;
   padding-right: 15px;
-  margin: 15px 10px;
+  margin: 20px 5px;
   border-radius: 5px;
   background-color: transparent;
   color: white;
-  border: 1px solid white;
+  border: 1px solid #cccccc;
+}
 
+.landing button:hover {
+  border: 1px solid white;
+}
+
+.landing button {
+  outline: none;
 }
 
 #logo-name {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 700;
 }
 
@@ -56,18 +68,21 @@
 }
 
 .landing-logo {
-  text-shadow: 2px 2px 2px #00ccff;
+  margin-left: 20px;
   display: flex;
   align-items: center;
 }
 
 
 .fa-circle {
-  color: white;;
+  border: 1px solid white;
+  border-radius: 50px;
+  color: transparent;
 }
 
 .checked {
-  color: #9370DB;
+  color: transparent;
+  background-color: white;
 }
 
 #landing-button {

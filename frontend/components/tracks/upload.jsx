@@ -28,20 +28,32 @@ class Upload extends React.Component {
     }
   }
 
+  modalanim() {
+    if (this.props.modals === null) {
+      return "norm";
+    } else {
+      return "move-up";
+    }
+  }
+
 
   render() {
 
     return (
       <section>
-        <section className="upload-container animated">
+        <section className={`upload-container ${this.modalanim()}`}>
           <h1>Upload to Oto no Kumo</h1>
-          <input type="file" onChange={this.updateFile} />
+          <div className="upload-btn-wrapper">
+            <button className="real-button"> Choose a file to upload </button>
+            <input className="file-button" type="file" onChange={this.updateFile} />
+          </div>
         </section>
       </section>
 
     );
   }
 }
+
 
 
 export default withRouter(Upload);

@@ -8,7 +8,8 @@ class NewUserForm extends React.Component {
       username: '',
       password: '',
       slide: "bounceInDown",
-      modal: "fadeIn"
+      modal: "fadeIn",
+      errors: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLeave = this.handleLeave.bind(this);
@@ -46,6 +47,7 @@ class NewUserForm extends React.Component {
 
   renderErrors() {
     if (this.props.errors){
+
       return(
         <ul>
           {this.props.errors.map((error, i) => (
@@ -61,25 +63,24 @@ class NewUserForm extends React.Component {
   render() {
     return (
       <div className="sign-form-container">
-        <section className={`modal-screen animated ${this.state.modal}`} onClick={(e) => (e.preventDefault(), this.handleLeave())}></section>
+        <section className={`modal-screen animated ${this.state.modal}`} onClick={(e) => (e.preventDefault(), this.handleLeave())}><div id="closingx">x</div></section>
         <form onSubmit={this.handleSubmit} className={`SignUpForm animated ${this.state.slide}`}>
           <h1> Create your Oto no Kumo Account </h1>
           <h3>{this.renderErrors()}</h3>
           <div className="SignUpFields">
-            <label> Choose a username
+            <label>
               <br></br>
-              <input type="text" value={this.state.username} onChange={this.update('username')} className="signup-input" />
+              <input type="text" value={this.state.username} onChange={this.update('username')} className={`signup-input ${this.state.errors}`} placeholder="Choose A Username"/>
             </label>
             <br/>
-            <label> Choose a password
+            <label>
               <br></br>
-              <input type="password" value={this.state.password} onChange={this.update('password')} className="signup-input" />
+              <input type="password" value={this.state.password} onChange={this.update('password')} className={`signup-input ${this.state.errors}`} placeholder="Choose A Password"/>
             </label>
             <br></br>
             <input type="submit" value="Sign Up!" className="submit-button"/>
           </div>
         <br></br>
-        <a onClick={(e) => (e.preventDefault(), this.handleLeave())} className="closing-x">X</a>
       </form>
       </div>
     );
