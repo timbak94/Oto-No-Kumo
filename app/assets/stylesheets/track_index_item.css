@@ -1,0 +1,59 @@
+.track-index-item-big img {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #e6e6e6;
+}
+
+.track-index-item-big {
+  padding: 5px;
+  display: flex;
+  margin-top: 10px;
+}
+
+.track-index-big-info {
+  padding-top: 10px;
+  margin-left: 10px;
+  display: flex;
+}
+
+.track-index-item-big li {
+  list-style: none;
+}
+
+
+.track-index-author {
+  font-weight: lighter;
+  font-size: 15px;
+  color: #b3b3b3;;
+  text-decoration: none;
+}
+
+.track-index-author li {
+  margin-bottom: 3px;
+}
+
+.track-index-name-big {
+  font-size: 17px;
+  color: black;
+  text-decoration: none;
+}
+
+.track-index-big-text {
+  margin-left: 10px;
+}
+
+.play-button, .pause-button {
+  text-align: center;
+  font-size: 15px;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  background-color: #ff5400;
+  height: 36px;
+  width: 36px;
+  outline: none;
+}
+
+.play-button:hover, .pause-button:hover {
+  background-color: #e64d00;
+}

@@ -18,7 +18,7 @@
 .profile-user-box h1 {
   background-color: rgba(0, 0, 0, 0.5);
   font-size: 20px;
-  font-weight: bolder;
+  font-weight: 500;
   color: white;
   padding: 10px;
   text-align: center;
@@ -36,7 +36,7 @@
 
 .user-index-setter {
   font-size: 25px;
-  font-weight: 700;
+  font-weight: 600;
   margin-top: 20px;
   margin-right: 20px;
   padding-bottom: 10px;

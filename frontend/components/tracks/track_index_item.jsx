@@ -36,18 +36,18 @@ class TrackIndexItem extends React.Component {
       if (this.props.currentSong) {
         if (this.props.currentSong.id === this.props.track.id) {
           if (this.props.status === "paused") {
-            return ( <button onClick={this.handlePlay}> Play </button> );
-          } else { return ( <button onClick={this.handlePause}> Pause </button> ); }
-        } else { return ( <button onClick={this.handleStart}> Start </button> ); }
+            return ( <button onClick={this.handlePlay} className="play-button"> <i class="fa fa-play" aria-hidden="true"></i> </button> );
+          } else { return ( <button onClick={this.handlePause} className="pause-button"> <i class="fa fa-pause" aria-hidden="true"></i></button> ); }
+        } else { return ( <button onClick={this.handleStart} className="play-button"> <i class="fa fa-play" aria-hidden="true"></i> </button> ); }
       } else {
-        return ( <button onClick={this.handleStart}> Start </button> );
+        return ( <button onClick={this.handleStart} className="play-button"> <i class="fa fa-play" aria-hidden="true"></i> </button> );
       }
     }
   }
 
   authorInfo() {
     if (this.props.author) {
-      return (<Link to={`/users/${this.props.author.id}`}>
+      return (<Link className="track-index-author" to={`/users/${this.props.author.id}`}>
         <li key={this.props.author.id}>{this.props.author.username}</li>
       </Link>);
     }
@@ -56,15 +56,19 @@ class TrackIndexItem extends React.Component {
   render() {
     if (this.props.style === "big-list") {
       return (
-        <div className="track-index-item">
+        <div className="track-index-item-big">
           <Link to={`/tracks/${this.props.track.author_id}/${this.props.track.id}`}>
             <img className="track-index-image-reg" src={this.props.track.image_url}></img>
           </Link>
-          <Link to={`/tracks/${this.props.track.author_id}/${this.props.track.id}`}>
-            <li key={this.props.track.id} >{this.props.track.title}</li>
-          </Link>
-          {this.authorInfo()}
-          {this.whichButton()}
+          <section className="track-index-big-info">
+            {this.whichButton()}
+            <section className="track-index-big-text">
+              {this.authorInfo()}
+              <Link className="track-index-name-big" to={`/tracks/${this.props.track.author_id}/${this.props.track.id}`}>
+                <li  key={this.props.track.id}>{this.props.track.title}</li>
+              </Link>
+            </section>
+          </section>
         </div>
       );
     }
