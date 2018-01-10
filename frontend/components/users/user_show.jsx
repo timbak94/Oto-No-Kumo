@@ -57,16 +57,17 @@ class UserShow extends React.Component {
         <section>
           <ul className="profile-user-box" >
             <img className="profile-avatar" src={this.props.user ? this.props.user.avatar_url : null}></img>
-            <h1> {this.props.user ? this.props.user.username : null} </h1>
+            <section className="section-username">
+              <h1> {this.props.user ? this.props.user.username : null} </h1>
+            </section>
           </ul>
           <nav className="profile-nav">
             <ul>
-              <li className={`${this.tracksSelect}`} onClick={(e) => {e.preventDefault(), this.handleClick("tracksSelect")}}> Tracks </li>
-              <li className={`${this.commentedSelect}`} onClick={(e)=> {e.preventDefault(), this.handleClick("commentedSelect")}}> Commented Tracks </li>
+              <li className={`${this.state.tracksSelect} user-index-setter`} onClick={(e) => {e.preventDefault(), this.handleClick("tracksSelect")}}> Tracks </li>
+              <li className={`${this.state.commentedSelect} user-index-setter`} onClick={(e)=> {e.preventDefault(), this.handleClick("commentedSelect")}}> Commented </li>
             </ul>
+            {this.whichIndex()}
           </nav>
-          {this.whichIndex()}
-
         </section>
       );
     } else {

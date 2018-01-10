@@ -1,15 +1,13 @@
 .track-form {
+  border: 1px solid #f2f2f2;
   border-top: 5px solid #ee512f;
-  border-left: 1px solid grey;
-  border-right: 1px solid grey;
-  border-bottom: 1px solid grey;
   position: absolute;
   top: 170px;
   left: 50%;
   margin-left: -420px;
-  height: 600px;
+  height: 500px;
   width: 800px;
-  padding: 20px;
+  padding: 40px;
   background: #fff;
   z-index: 3;
 }
@@ -37,10 +35,37 @@
   padding: none;
   font-size: 14px;
   font-weight: 400;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .track-fields {
+  font-size: 15px;
+  margin-left: 20px;
   display: block;
+}
+
+.buffer {
+  margin-bottom: 10px;
+}
+
+.track-form-title {
+  outline: none;
+  height: 26px;
+  width: 500px;
+  padding: 0px 10px;
+  font-size: 15px;
+  color: #393939;
+  border-color: 1px solid #cccccc;
+}
+
+.track-form-description {
+  border-color: #cccccc;
+  color: #393939;
+  outline: none;
+  height: 200px;
+  width: 500px;
+  padding: 5px 10px;
+  font-size: 15px;
 }
 
 .upload-btn-wrapper i {
@@ -51,4 +76,37 @@
   z-index: 2000;
   margin-top: 225px;
   margin-left: 2px;
+}
+
+.track-bottom-buttons {
+  margin-top: 90px;
+  border-top: 1px solid #cccccc;
+  padding-top: 20px;
+  padding-left: 668px;
+}
+
+.track-fields select {
+  border-color: #cccccc;
+  outline: none;
+  font-size: 13px;
+  background-color: white;
+  width: 200px;
+  height: 25px;
+}
+
+#track-form-submit, .close-track-form {
+  margin-left: 10px;
+  padding: 2px, 10px;
+  display: inline-block;
+  border: none;
+  border-radius: 3px;
+  background-color: #ee512f;
+  height: 26px;
+  font-size: 15px;
+  color: white;
+}
+
+.close-track-form {
+  background-color: white;
+  color: #393939;
 }

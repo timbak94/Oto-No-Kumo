@@ -121,7 +121,7 @@ class TrackForm extends React.Component {
             <div className="track-form-image">
               <div className="upload-btn-wrapper">
                 {this.showImage()}
-                <button className="real-avatar-button"> <i class="fa fa-camera" aria-hidden="true"></i> Update Image </button>
+                <button className="real-avatar-button"> <i className="fa fa-camera" aria-hidden="true"></i> Update Image </button>
                 <input className="file-button-avatar" type="file" onChange={this.updateFile} />
               </div>
             </div>
@@ -129,33 +129,34 @@ class TrackForm extends React.Component {
 
             <div className="track-fields">
               <label> Title
-                <br></br>
+                <div className="buffer" />
                 <input type="text" value={this.state.title} onChange={this.update('title')} className="track-form-title" />
               </label>
-              <br/>
+              <div className="buffer" />
               <label> Genre
-                <br></br>
+                <div className="buffer" />
                 <select
                   value={this.state.genre}
                   onChange={this.update('genre')}
                   defaultValue={"Rock"}
                   >
+                  <option value="genre" disabled="disabled">Genre</option>
                   {GENRES.map((type, i) => {
                     return <option value={type} key={i}>{type}</option>;
                     })}
                   </select>
               </label>
-              <br/>
+              <div className="buffer" />
               <label> Description
-                <br></br>
-                <input type="text" value={this.state.description} onChange={this.update('description')} className="track-form-description" />
+                <div className="buffer" />
+                <textarea type="text" onChange={this.update('description')} className="track-form-description">{this.state.description}</textarea>
               </label>
-              <br></br>
+              <div className="buffer" />
               </div>
           </div>
           <div className="track-bottom-buttons">
-            <input type="submit" value={this.props.type === "edit" ? "Save changes" : "Save"} className="track-form-submit"/>
             <button onClick={(e) => (e.preventDefault(), this.handleLeave())} className="close-track-form">Cancel</button>
+            <input type="submit" value={this.props.type === "edit" ? "Save changes" : "Save"} id="track-form-submit" />
           </div>
         </form>
       </div>
