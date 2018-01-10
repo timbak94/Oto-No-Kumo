@@ -3,7 +3,9 @@ import { requestCurrentSong,
   playSong,
   stopSong,
   pauseSong,
-  updateTime
+  updateTime,
+  seekSong,
+  clearSeek
  } from '../../actions/player_actions';
 import { fetchSingleUser } from '../../actions/user_actions';
 import MusicPlayer from './music_player';
@@ -20,7 +22,8 @@ const mapStateToProps = (state, ownProps) => {
     remaining: state.player.remaining ? state.player.remaining : null,
     show: showSong,
     status: state.player.status ? state.player.status : "stopped",
-    author: author ? author : null
+    author: author ? author : null,
+    seek: state.player.seek
   };
 };
 
@@ -30,6 +33,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     playSong: () => dispatch(playSong()),
     stopSong: () => dispatch(stopSong()),
     pauseSong: () => dispatch(pauseSong()),
+    seekSong: (time) => dispatch(seekSong(time)),
+    clearSeek: () => dispatch(clearSeek()),
     updateTime: (current, remaining) => dispatch(updateTime(current, remaining)),
     fetchSingleUser: (id) => dispatch(fetchSingleUser(id))
   };

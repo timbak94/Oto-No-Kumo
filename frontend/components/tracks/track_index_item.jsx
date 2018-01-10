@@ -36,11 +36,11 @@ class TrackIndexItem extends React.Component {
       if (this.props.currentSong) {
         if (this.props.currentSong.id === this.props.track.id) {
           if (this.props.status === "paused") {
-            return ( <button onClick={this.handlePlay} className="play-button"> <i class="fa fa-play" aria-hidden="true"></i> </button> );
-          } else { return ( <button onClick={this.handlePause} className="pause-button"> <i class="fa fa-pause" aria-hidden="true"></i></button> ); }
-        } else { return ( <button onClick={this.handleStart} className="play-button"> <i class="fa fa-play" aria-hidden="true"></i> </button> ); }
+            return ( <button onClick={this.handlePlay} className="play-button"> <i className="fa fa-play" aria-hidden="true"></i> </button> );
+          } else { return ( <button onClick={this.handlePause} className="pause-button"> <i className="fa fa-pause" aria-hidden="true"></i></button> ); }
+        } else { return ( <button onClick={this.handleStart} className="play-button"> <i className="fa fa-play" aria-hidden="true"></i> </button> ); }
       } else {
-        return ( <button onClick={this.handleStart} className="play-button"> <i class="fa fa-play" aria-hidden="true"></i> </button> );
+        return ( <button onClick={this.handleStart} className="play-button"> <i className="fa fa-play" aria-hidden="true"></i> </button> );
       }
     }
   }

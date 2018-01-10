@@ -22,7 +22,9 @@ class UserShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchSingleUser(this.props.headUser);
+    if (!this.props.user) {
+      this.props.fetchSingleUser(this.props.headUser);
+    }
   }
 
   trackIndex() {

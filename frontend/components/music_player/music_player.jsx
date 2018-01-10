@@ -38,9 +38,10 @@ class MusicPlayer extends React.Component {
     if (nextProps.status === "playing") {
       this.audioPlayer.play();
     }
-  }
-
-  componentDidMount() {
+    if (nextProps.seek) {
+      this.audioPlayer.currentTime = nextProps.seek;
+      this.props.clearSeek();
+    }
     if (this.props.song) {
       if (this.props.author === null) {
         this.props.fetchSingleUser(this.props.song.author_id);
@@ -67,10 +68,10 @@ class MusicPlayer extends React.Component {
 
   whichButton() {
     if (this.state.playStatus === "playing" || this.state.playStatus === "start") {
-      return (<button className="music-controller" onClick={this.handlePause}><i class="fa fa-pause" aria-hidden="true"></i></button>);
+      return (<button className="music-controller" onClick={this.handlePause}><i className="fa fa-pause" aria-hidden="true"></i></button>);
     }
     if (this.state.playStatus === "paused") {
-      return (<button className="music-controller" onClick={this.handlePlay}><i class="fa fa-play" aria-hidden="true"></i></button>);
+      return (<button className="music-controller" onClick={this.handlePlay}><i className="fa fa-play" aria-hidden="true"></i></button>);
     }
   }
 
@@ -84,17 +85,19 @@ class MusicPlayer extends React.Component {
   }
 
   songInfo() {
-    return (
-      <section className="song-info">
-        <img src={this.props.song.image_url} className="player-image"></img>
-        <ul>
-          <li className="author-name">{this.props.author.username}</li>
-          <li>{this.props.song.title}
-          </li>
-        </ul>
+    if (this.props.author) {
+      return (
+        <section className="song-info">
+          <img src={this.props.song.image_url} className="player-image"></img>
+          <ul>
+            <li className="author-name">{this.props.author.username}</li>
+            <li>{this.props.song.title}
+            </li>
+          </ul>
 
-      </section>
-    );
+        </section>
+      );
+    }
   }
 
 
@@ -117,7 +120,7 @@ class MusicPlayer extends React.Component {
 // HEY U GOTTA CHANGE THIS SEEKING TO MAKE IT STORE-BASED, THAT WAY THE OTHER COMPONENTS CAN AFFECT SEEKING YOU IDIOT
   handleSeek(e) {
     e.preventDefault();
-    this.audioPlayer.currentTime = e.target.value;
+    this.props.seekSong(e.target.value);
   }
 
   handleVolume(e) {
@@ -171,7 +174,7 @@ class MusicPlayer extends React.Component {
                 </section>
               </div>
               <div>
-                <button onClick={this.showVolume} className="music-controller"> <i class="fa fa-volume-off" aria-hidden="true" ></i></button>
+                <button onClick={this.showVolume} className="music-controller"> <i className="fa fa-volume-off" aria-hidden="true" ></i></button>
                 <section className="vol-slide-cont">
                   <section className={`${this.state.showVolume}`}>
                     <input onChange={this.handleVolume} orient="vertical" type="range" min="0" max="100" defaultValue="50" className={`volume-slider `}/>

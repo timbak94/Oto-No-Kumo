@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
 
   if (ownProps.type) {
     type = "edit";
-    track = state.entities.tracks[ownProps.trackId];
+    track = state.entities.tracks[ownProps.trackId].track;
   }
   let keys = Object.keys(state.entities.tracks);
   let lastId;

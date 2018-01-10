@@ -2,11 +2,13 @@ import { RECEIVE_CURRENT_SONG,
   PLAY_SONG,
   STOP_SONG,
   PAUSE_SONG,
-  UPDATE_TIME
+  UPDATE_TIME,
+  CLEAR_SEEK,
+  SEEK_SONG
  } from '../actions/player_actions';
 import merge from 'lodash/merge';
 
-const playerReducer = (oldState = {currentSong: null, status: "playing", current: null, remaining: null}, action ) => {
+const playerReducer = (oldState = {currentSong: null, status: "playing", current: null, remaining: null, seek: null}, action ) => {
   Object.freeze(oldState);
   let newState = merge({}, oldState);
   switch(action.type) {
@@ -21,6 +23,12 @@ const playerReducer = (oldState = {currentSong: null, status: "playing", current
       return newState;
     case PAUSE_SONG:
       newState = merge({}, oldState, {status: "paused"});
+      return newState;
+    case SEEK_SONG:
+      newState = merge({}, oldState, {seek: action.time});
+      return newState;
+    case CLEAR_SEEK:
+      newState = merge({}, oldState, {seek: null});
       return newState;
     case UPDATE_TIME:
       newState = merge({}, oldState, {current: action.current, remaining: action.remaining});
