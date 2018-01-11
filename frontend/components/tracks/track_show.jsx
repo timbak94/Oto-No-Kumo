@@ -31,11 +31,11 @@ class TrackShow extends React.Component {
       if (this.props.currentSong) {
         if (this.props.currentSong.id === this.props.track.id) {
           if (this.props.status === "paused") {
-            return ( <button onClick={this.handlePlay} className="play-button"> <i className="fa fa-play" aria-hidden="true"></i> </button> );
-          } else { return ( <button onClick={this.handlePause} className="pause-button"> <i className="fa fa-pause" aria-hidden="true"></i></button> ); }
-        } else { return ( <button onClick={this.handleStart} className="play-button"> <i className="fa fa-play" aria-hidden="true"></i> </button> ); }
+            return ( <button onClick={this.handlePlay} className="play-button-show"> <i className="fa fa-play" aria-hidden="true"></i> </button> );
+          } else { return ( <button onClick={this.handlePause} className="pause-button-show"> <i className="fa fa-pause" aria-hidden="true"></i></button> ); }
+        } else { return ( <button onClick={this.handleStart} className="play-button-show"> <i className="fa fa-play" aria-hidden="true"></i> </button> ); }
       } else {
-        return ( <button onClick={this.handleStart} className="play-button"> <i className="fa fa-play" aria-hidden="true"></i> </button> );
+        return ( <button onClick={this.handleStart} className="play-button-show"> <i className="fa fa-play" aria-hidden="true"></i> </button> );
       }
     }
   }
@@ -43,6 +43,9 @@ class TrackShow extends React.Component {
   componentDidMount(){
     if (!this.props.track) {
       this.props.requestSingleTrack(parseInt(this.props.trackId));
+    }
+    if (!this.props.author) {
+      this.props.fetchSingleUser(parseInt(this.props.headUser));
     }
   }
 
@@ -109,18 +112,44 @@ class TrackShow extends React.Component {
     if (!this.props.track) {
       return null;
     }
+    if (!this.props.author) {
+      return null;
+    }
     return (
       <section>
-        <div> {this.props.track.title} </div>
-        <div> {this.props.track.description} </div>
-        <img src={this.props.track.image_url} className="track-show-image"></img>
-        {this.ownership()}
-        {this.whichButton()}
-        <section className="bar-hold">
-          {this.whichBar()}
+        <section className="track-show-head">
+          <section className="track-show-head-no-image">
+            <section className="track-show-head-no-image-no-bar">
+              {this.whichButton()}
+              <section className="track-show-text">
+                <Link to={`/users/${this.props.author.id}`}>
+                  <section> {this.props.author.username} </section>
+                </Link>
+                <h1> {this.props.track.title} </h1>
+              </section>
+            </section>
+            <section className="bar-hold">
+              {this.whichBar()}
+            </section>
+          </section>
+          <img src={this.props.track.image_url} className="track-show-image"></img>
         </section>
-        <CommentFormContainer trackId={this.props.track.id}/>
-        <CommentIndexContainer id={this.props.track.id}/>
+        <section className="track-show-below">
+          <CommentFormContainer trackId={this.props.track.id}/>
+          <section className="track-show-below-form">
+            <section className="track-show-author-info">
+              <Link to={`/users/${this.props.author.id}`}>
+                <img src={this.props.author.avatar_url} className="track-show-avatar"/>
+              </Link>
+              <Link to={`/users/${this.props.author.id}`}>
+                <h1>{this.props.author.username}</h1>
+              </Link>
+            </section>
+            <section> {this.props.track.description} </section>
+            {this.ownership()}
+            <CommentIndexContainer id={this.props.track.id}/>
+          </section>
+        </section>
       </section>
 
     );

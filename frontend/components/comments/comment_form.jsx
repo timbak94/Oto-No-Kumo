@@ -24,13 +24,16 @@ class CommentForm extends React.Component {
   render() {
     if (this.props.trackId) {
       return (
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <section>
-              <input type="text" value={this.state.body} onChange={this.update} placeholder="Comment"></input>
-            </section>
-          </form>
-        </div>
+        <section className="comment-form-container">
+          <section className="comment-form">
+            <img className="comment-form-avatar" src={this.props.currentUser.avatar_url}/>
+            <form onSubmit={this.handleSubmit}>
+              <section>
+                <input type="text" value={this.state.body} onChange={this.update} placeholder="Comment"></input>
+              </section>
+            </form>
+          </section>
+        </section>
       );
     } else {
       return null;

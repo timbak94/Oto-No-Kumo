@@ -10,6 +10,7 @@
    transition: opacity .2s;
    cursor: pointer;
    overflow:hidden;
+   border-radius: 10px;
 }
 
 .slider-show::-webkit-slider-runnable-track {
@@ -38,4 +39,13 @@
   height: 50px;
   width: 820px;
   background-color: #383838;
+  border-radius: 10px;
+}
+
+.progress-time {
+  color: white;
+  font-weight: 700px;
+  padding: 0px 10px;
+  display: flex;
+  justify-content: space-between;
 }

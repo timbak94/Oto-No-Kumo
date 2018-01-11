@@ -1,4 +1,77 @@
 .track-show-image {
-  height: 200px;
-  width: 200px;
+  margin-top: 20px;
+  height: 320px;
+  width: 320px;
+  padding-right: 10px;
+  -webkit-box-reflect: below 0px -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0.3) 0%, transparent 50%, transparent 100%);
+}
+
+.track-show-head {
+  overflow: hidden;
+  height: 380px;
+  display: flex;
+  background: linear-gradient(to bottom right, #00ff99, #00ccff);
+}
+
+.track-show-head-no-image-no-bar {
+  display: flex;
+
+}
+
+.play-button-show, .pause-button-show {
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  border-radius: 50%;
+  background-color: #ff5400;
+  height: 60px;
+  width: 60px;
+  outline: none;
+}
+
+.track-show-head-no-image {
+  padding: 30px;
+  padding-right: 20px;
+}
+
+.track-show-text {
+  margin-left: 15px;
+}
+
+.track-show-text section, .track-show-text h1 {
+  color: white;
+  background-color: rgba(0,0,0,.5);
+  padding: 5px 5px;
+  margin-bottom: 10px;
+}
+
+.track-show-text section {
+  width: auto;
+  margin-top: -7px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.track-show-text h1 {
+  font-size: 30px;
+}
+
+.bar-hold {
+  margin-top: 160px;
+}
+
+.track-show-below {
+  padding: 20px;
+}
+
+.track-show-avatar {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.track-show-below-form {
+  margin-top: 20px;
 }
