@@ -8,9 +8,7 @@ class PlayBar extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.length === 0) {
       this.length = this.props.current + this.props.remaining;
-    }
   }
 
   timeFormat(sec) {
@@ -31,7 +29,7 @@ class PlayBar extends React.Component {
   render() {
     return (
       <section>
-        <input onChange={this.handleSeek} type="range" min="0" max={this.length} value={this.props.current ? this.props.current : "0"} className="slider-show" id="myRange" />
+        <input onChange={this.handleSeek} type="range" min="0" max={this.length} value={this.props.current ? this.props.current : "0"} className={`slider-${this.props.style}`} id="myRange" />
         <section className="progress-time">
           <h1> {this.timeFormat(this.props.current)} </h1>
           <h1> {this.timeFormat(this.props.remaining)} </h1>

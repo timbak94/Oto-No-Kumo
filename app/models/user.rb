@@ -12,6 +12,7 @@ class User < ApplicationRecord
   attr_reader :password
   has_many :comments, class_name: 'Comment', primary_key: :id, foreign_key: :author_id
   has_many :tracks, class_name: 'Track', primary_key: :id, foreign_key: :author_id
+  has_many :commentedTracks, -> { distinct }, through: :comments, source: :track
 
   def self.find_by_credentials(username, pass)
     user = User.find_by(username: username)

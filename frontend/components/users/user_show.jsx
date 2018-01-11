@@ -49,7 +49,7 @@ class UserShow extends React.Component {
     if (this.state.tracksSelect === "user-show-selected") {
       return (<TrackIndex tracks={this.props.user.user_tracks} style={"big-list"}/>);
     } else {
-      return null;
+      return (<TrackIndex tracks={this.props.user.user_commented_tracks} style={"big-list"}/>);
     }
   }
 

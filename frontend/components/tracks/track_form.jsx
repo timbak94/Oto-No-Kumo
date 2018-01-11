@@ -27,9 +27,9 @@ class TrackForm extends React.Component {
 
       genre: this.props.track.genre,
       message: "",
-      visible: this.props.type === "new" ? "hidden" : "",
+      visible: this.props.type === "new" ? "" : "",
       slide: this.props.type === "edit" ? "fadeInDown" : "bounceInUp",
-      modal: this.props.type === "edit" ? "fadeIn" : "hidden"
+      modal: this.props.type === "edit" ? "fadeIn" : "fadeIn"
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);

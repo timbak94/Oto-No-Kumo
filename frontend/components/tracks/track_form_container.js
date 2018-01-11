@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
     author_id: state.session.currentUser.id,
     title: "",
     description: "",
-    genre: "",
+    genre: "Rock",
     image_url: null,
     song_url: "",
     track: ownProps.trackFile};

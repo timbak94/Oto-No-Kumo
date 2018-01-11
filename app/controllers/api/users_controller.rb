@@ -12,6 +12,7 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @user_tracks = @user.tracks
+    @user_commented_tracks = @user.commentedTracks
   end
 
   def user_params

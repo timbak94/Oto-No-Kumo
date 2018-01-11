@@ -8,7 +8,8 @@ const mapStateToProps = (state, ownProps) => {
     song: state.player.currentSong ? state.player.currentSong : null,
     current: state.player.current ? state.player.current : null,
     remaining: state.player.remaining ? state.player.remaining : null,
-    seek: state.player.seek
+    seek: state.player.seek,
+    style: ownProps.style
   };
 };
 

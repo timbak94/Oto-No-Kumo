@@ -1,4 +1,13 @@
 class Api::TracksController < ApplicationController
+
+  def index
+    if params[:userId]
+      @tracks = User.find(params[:userId]).commentedTracks
+    elsif params[:genre]
+      @tracks = Tracks.where(genre: params[:genre]).sample(5)
+    end
+  end
+
   def show
     @track = Track.find(params[:id].to_i)
     if @track

@@ -57,3 +57,10 @@
 .play-button:hover, .pause-button:hover {
   background-color: #e64d00;
 }
+
+.track-index-bar-holder {
+  background-color: #b3b3b3;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 10px;
+}

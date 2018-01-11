@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import PlayBar from '../music_player/inline_play_bar_container';
 
 class TrackIndexItem extends React.Component {
   constructor(props) {
@@ -53,6 +54,26 @@ class TrackIndexItem extends React.Component {
     }
   }
 
+  whichBar() {
+    if (this.props.currentSong) {
+      if (this.props.currentSong.id === this.props.track.id) {
+        return (
+          <PlayBar style="index"/>
+        );
+      } else {
+        return (
+          <section className="placeholder-Bar-index">
+          </section>
+        );
+      }
+    } else {
+      return (
+        <section className="placeholder-Bar-index">
+        </section>
+      );
+    }
+  }
+
   render() {
     if (this.props.style === "big-list") {
       return (
@@ -60,13 +81,18 @@ class TrackIndexItem extends React.Component {
           <Link to={`/tracks/${this.props.track.author_id}/${this.props.track.id}`}>
             <img className="track-index-image-reg" src={this.props.track.image_url}></img>
           </Link>
-          <section className="track-index-big-info">
-            {this.whichButton()}
-            <section className="track-index-big-text">
-              {this.authorInfo()}
-              <Link className="track-index-name-big" to={`/tracks/${this.props.track.author_id}/${this.props.track.id}`}>
-                <li  key={this.props.track.id}>{this.props.track.title}</li>
-              </Link>
+          <section className="track-index-bar">
+            <section className="track-index-big-info">
+              {this.whichButton()}
+              <section className="track-index-big-text">
+                {this.authorInfo()}
+                <Link className="track-index-name-big" to={`/tracks/${this.props.track.author_id}/${this.props.track.id}`}>
+                  <li  key={this.props.track.id}>{this.props.track.title}</li>
+                </Link>
+              </section>
+            </section>
+            <section className="track-index-bar-holder">
+              {this.whichBar()}
             </section>
           </section>
         </div>

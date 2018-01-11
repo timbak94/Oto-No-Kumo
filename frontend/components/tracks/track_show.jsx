@@ -91,7 +91,7 @@ class TrackShow extends React.Component {
     if (this.props.currentSong) {
       if (this.props.currentSong.id === this.props.track.id) {
         return (
-          <PlayBar />
+          <PlayBar style="show"/>
         );
       } else {
         return (

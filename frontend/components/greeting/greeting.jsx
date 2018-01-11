@@ -76,7 +76,7 @@ class Greeting extends React.Component {
           <li>
             <div id="search-marg"></div>
             <form>
-              <input type="text" id="search" placeholder="Search"/>
+              <input type="text" id="search" placeholder="Search Doesn't Work...............................................yet. *X-files theme intesifies*"/>
             </form>
           </li>
           <li>

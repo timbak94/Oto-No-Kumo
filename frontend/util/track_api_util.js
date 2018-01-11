@@ -32,3 +32,10 @@ export const deleteTrack = (trackId) => {
     url: `api/tracks/${trackId}`
   });
 };
+
+export const fetchCommentedTracks = (userId) => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/tracks?user_id=${userId}`
+  });
+};

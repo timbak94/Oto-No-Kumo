@@ -19,6 +19,7 @@ import ModalContainer from '../modal/modal_container';
 import UploadContainer from './tracks/upload_container';
 import MusicPlayerContainer from './music_player/music_player_container';
 import UserShowContainer from './users/user_show_container';
+import CollectionContainer from './collection/collection_container';
 
 const App = () => {
   return(
@@ -37,7 +38,7 @@ const App = () => {
           <ProtectedRoute path="/home" component={HomeContainer}/>
           <ProtectedRoute path="/tracks/:userId/:trackId" component={TrackShowContainer}/>
           <ProtectedRoute path="/users/:userId" component={UserShowContainer}/>
-          <Route path="/collection"/>
+          <ProtectedRoute path="/collection" component={CollectionContainer}/>
         </Switch>
         <ProtectedRoute path="/upload" component={UploadContainer}/>
       </section>

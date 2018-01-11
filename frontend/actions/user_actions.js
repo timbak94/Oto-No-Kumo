@@ -6,7 +6,7 @@ export const fetchSingleUser = (id) => (dispatch) => (
   APIUtil.fetchUser(id).then((user) => dispatch(receiveSingleUser(user)))
 );
 
-const receiveSingleUser = (user) => {
+export const receiveSingleUser = (user) => {
   return {
     type: RECEIVE_SINGLE_USER,
     user
