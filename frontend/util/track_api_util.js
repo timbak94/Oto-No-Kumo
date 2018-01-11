@@ -39,3 +39,18 @@ export const fetchCommentedTracks = (userId) => {
     url: `api/tracks?user_id=${userId}`
   });
 };
+
+export const fetchChartTracks = (genre) => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/tracks?genre=${genre}`
+  });
+};
+
+export const increasePlayCount = (song) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/tracks/${song.id}`,
+    data: { track: song }
+  });
+};

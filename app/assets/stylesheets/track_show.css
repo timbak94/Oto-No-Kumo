@@ -75,3 +75,12 @@ a {
 .track-show-below-form {
   margin-top: 20px;
 }
+
+.track-show-head-no-image-no-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.track-show-more-text {
+  display: flex;
+}

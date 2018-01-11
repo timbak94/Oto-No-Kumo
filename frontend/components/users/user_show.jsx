@@ -27,16 +27,6 @@ class UserShow extends React.Component {
     }
   }
 
-  trackIndex() {
-    return (
-      this.props.user.user_tracks.map(track => (
-        <Link to={`/tracks/${this.props.user.id}/${track.id}`}>
-          <li key={track.id} >{track.title}</li>
-        </Link>
-      ))
-    );
-  }
-
   handleClick(target) {
     if (target === "tracksSelect") {
       this.setState({[target]: "user-show-selected", commentedSelect: ""});

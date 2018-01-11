@@ -4,7 +4,7 @@ class Api::TracksController < ApplicationController
     if params[:userId]
       @tracks = User.find(params[:userId]).commentedTracks
     elsif params[:genre]
-      @tracks = Tracks.where(genre: params[:genre]).sample(5)
+      @tracks = Track.where(genre: params[:genre]).order(play_count: :desc).limit(10)
     end
   end
 
@@ -45,6 +45,6 @@ class Api::TracksController < ApplicationController
   end
 
   def track_params
-    params.require(:track).permit(:title, :description, :author_id, :genre, :image, :track_url)
+    params.require(:track).permit(:title, :description, :author_id, :genre, :image, :track_url, :play_count)
   end
 end

@@ -6,12 +6,11 @@ export const PAUSE_SONG = "PAUSE_SONG";
 export const SEEK_SONG = "SEEK_SONG";
 export const CLEAR_SEEK = "CLEAR_SEEK";
 export const UPDATE_TIME = "UPDATE_TIME";
+import {increasePlayCount } from '../util/track_api_util';
 
-export const requestCurrentSong = (song) => {
-  return {
-    type: RECEIVE_CURRENT_SONG,
-    song: song
-  };
+export const requestCurrentSong = (song) => (dispatch) => {
+  song.play_count ++;
+  increasePlayCount(song).then(dispatch(receiveCurrentSong(song)));
 };
 
 export const playSong = () => {
@@ -56,5 +55,12 @@ export const updateTime = (current, remaining) => {
     type: UPDATE_TIME,
     current,
     remaining
+  };
+};
+
+export const receiveCurrentSong = (song) => {
+  return {
+    type: RECEIVE_CURRENT_SONG,
+    song: song
   };
 };

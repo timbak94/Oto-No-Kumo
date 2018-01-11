@@ -120,13 +120,19 @@ class TrackShow extends React.Component {
         <section className="track-show-head">
           <section className="track-show-head-no-image">
             <section className="track-show-head-no-image-no-bar">
-              {this.whichButton()}
-              <section className="track-show-text">
-                <Link to={`/users/${this.props.author.id}`}>
-                  <section> {this.props.author.username} </section>
-                </Link>
-                <h1> {this.props.track.title} </h1>
+              <section className="track-show-more-text">
+                {this.whichButton()}
+                <ul className="track-show-text">
+                  <Link to={`/users/${this.props.author.id}`}>
+                    <li> {this.props.author.username} </li>
+                  </Link>
+                  <li> {this.props.track.title} </li>
+                </ul>
               </section>
+              <ul>
+                <li>{this.props.track.genre}</li>
+                <li><i class="fa fa-repeat" aria-hidden="true"></i>{this.props.track.play_count}</li>
+              </ul>
             </section>
             <section className="bar-hold">
               {this.whichBar()}

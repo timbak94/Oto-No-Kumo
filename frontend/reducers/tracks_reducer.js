@@ -1,4 +1,4 @@
-import { RECEIVE_TRACK, REMOVE_TRACK } from '../actions/track_actions';
+import { RECEIVE_TRACK, REMOVE_TRACK, RECEIVE_CHART_TRACKS } from '../actions/track_actions';
 import { RECEIVE_SINGLE_USER } from '../actions/user_actions';
 import { RECEIVE_COMMENTS } from '../actions/comment_actions';
 import merge from 'lodash/merge';
@@ -15,6 +15,12 @@ const tracksReducer = (oldstate = { }, action ) => {
       return newState;
     case RECEIVE_SINGLE_USER:
       action.user.user_tracks.forEach ((el) => {
+        let newTrack = {[el.id]: el};
+        newState = merge({}, newState, newTrack);
+      });
+      return newState;
+    case RECEIVE_CHART_TRACKS:
+      action.tracks.chart_tracks.forEach ((el) => {
         let newTrack = {[el.id]: el};
         newState = merge({}, newState, newTrack);
       });

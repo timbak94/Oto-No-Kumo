@@ -63,7 +63,7 @@
    appearance: none;
    width: 620px;
    height: 25px;
-   background-color: #383838; /* Grey background */
+   background: #383838; /* Grey background */
    outline: none;
    opacity: 0.7;
    -webkit-transition: .2s;
