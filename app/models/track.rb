@@ -16,7 +16,7 @@ class Track < ApplicationRecord
 
   has_attached_file :track_url, default_url: "missing-track.png"
   validates_attachment_content_type :track_url,
- :content_type => [ 'audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio' ]
+ :content_type => [ 'audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio', 'application/octet-stream' ]
 
   validates :title, :description, :author_id, :genre, presence: true
   validates :genre, inclusion: { in: GENRES }
@@ -30,5 +30,9 @@ class Track < ApplicationRecord
     class_name: 'Comment',
     foreign_key: :track_id,
     primary_key: :id
-    
+
+end
+
+
+module Paperclip
 end
