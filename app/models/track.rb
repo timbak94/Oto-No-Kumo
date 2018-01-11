@@ -30,29 +30,5 @@ class Track < ApplicationRecord
     foreign_key: :track_id,
     primary_key: :id
 
-    module Paperclip
-      class MediaTypeSpoofDetector
 
-        def supplied_content_type
-          +      if @content_type == "application/octet-stream"
-            +        @content_type = calculated_content_type
-            +      else
-            @content_type
-            +      end
-          end
-        end
-      end
-end
-
-module Paperclip
-  class MediaTypeSpoofDetector
-
-    def supplied_content_type
-+      if @content_type == "application/octet-stream"
-+        @content_type = calculated_content_type
-+      else
-        @content_type
-+      end
-    end
-  end
 end
