@@ -1,1 +1,27 @@
 
+.track-index-author:hover {
+  color: #ffa04d;
+}
+
+.track-index-name-big:hover {
+  color: #ff7700;
+}
+
+.track-button-info-holder {
+  display: flex;
+}
+
+.track-index-big-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.track-index-big-info h1 {
+  font-size: 13px;
+  opacity: .5;
+}
+
+.fa-rotate-right:before, .fa-repeat:before {
+    content: "\f01e";
+    margin-right: 7px;
+}

@@ -1,4 +1,4 @@
-.track-index-item-big img {
+.track-index-item-big > img {
   width: 150px;
   height: 150px;
   border: 1px solid #e6e6e6;
@@ -20,6 +20,10 @@
   list-style: none;
 }
 
+.track-index-image-reg {
+  width: 150px;
+  height: 150px;
+}
 
 .track-index-author {
   font-weight: lighter;
@@ -55,12 +59,14 @@
 }
 
 .play-button:hover, .pause-button:hover {
+  cursor: pointer;
   background-color: #e64d00;
 }
 
 .track-index-bar-holder {
   background-color: #b3b3b3;
   border-radius: 10px;
-  margin: 20px;
+  margin: 10px 20px;
   padding: 10px;
+  margin-bottom: 5px;
 }

@@ -1,3 +1,81 @@
-.charts-genre {
+.charts-genre > li:hover {
+  cursor: pointer;
+}
 
+.charts-genre > li {
+  font-size: 23px;
+  font-weight: 600;
+}
+
+.charts-genre {
+  border-bottom: 1px solid #f2f2f2;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-container {
+  padding: 10px;
+}
+
+.home-show {
+  border-bottom: 2px solid #ff7700;
+  color: #ff7700;
+  padding-bottom: 10px;
+}
+
+.home-container > h1 {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.chart-container {
+  display: flex;
+}
+
+.countdown {
+  padding-top: 45px;
+}
+
+.countdown > li {
+  cursor: default;
+  padding-left: 90px;
+  text-shadow: 5px 5px 0px #ff7700;
+  font-size: 90px;
+  font-weight: 700;
+  height: 120px;
+  width: 120px;
+  color: #383838;
+  margin-bottom: 55px;
+}
+
+.countdown > li:hover {
+  color: #ffa04d
+}
+
+.home-message-container {
+  overflow: hidden;
+  padding: 20px;
+  width: 1240px;
+  height: 200px;
+}
+
+.Piano {
+  width: 1180px;
+  height: 200px;
+  background: url("https://78.media.tumblr.com/803ac110be97058a35610863607f42a4/tumblr_n8kbz7LSma1ts5lkuo1_500.gif");
+  background-size: 100% ;
+  background-position: top;
+}
+
+.home-message-container {
+  color: white;
+}
+
+.Rock {
+  width: 1180px;
+  height: 200px;
+  background: url("https://78.media.tumblr.com/002a892cf3f9902235e6ec17b1471630/tumblr_n2u8dvDOOo1tv44eho1_500.gif");
+  background-size: 100% ;
+  background-position: center;
 }

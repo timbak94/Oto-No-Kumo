@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PlayBar from '../music_player/inline_play_bar_container';
+import CommentFormContainer from '../comments/comment_form_container';
 
 class TrackIndexItem extends React.Component {
   constructor(props) {
@@ -37,11 +38,11 @@ class TrackIndexItem extends React.Component {
       if (this.props.currentSong) {
         if (this.props.currentSong.id === this.props.track.id) {
           if (this.props.status === "paused") {
-            return ( <button onClick={this.handlePlay} className="play-button"> <i className="fa fa-play" aria-hidden="true"></i> </button> );
-          } else { return ( <button onClick={this.handlePause} className="pause-button"> <i className="fa fa-pause" aria-hidden="true"></i></button> ); }
-        } else { return ( <button onClick={this.handleStart} className="play-button"> <i className="fa fa-play" aria-hidden="true"></i> </button> ); }
+            return ( <button onClick={this.handlePlay} className={`play-button${this.props.style === "home-page" ? "-home" : ""}`}> <i className="fa fa-play" aria-hidden="true"></i> </button> );
+          } else { return ( <button onClick={this.handlePause} className={`pause-button${this.props.style === "home-page" ? "-home" : ""}`}> <i className="fa fa-pause" aria-hidden="true"></i></button> ); }
+        } else { return ( <button onClick={this.handleStart} className={`play-button${this.props.style === "home-page" ? "-home" : ""}`}> <i className="fa fa-play" aria-hidden="true"></i> </button> ); }
       } else {
-        return ( <button onClick={this.handleStart} className="play-button"> <i className="fa fa-play" aria-hidden="true"></i> </button> );
+        return ( <button onClick={this.handleStart} className={`play-button${this.props.style === "home-page" ? "-home" : ""}`}> <i className="fa fa-play" aria-hidden="true"></i> </button> );
       }
     }
   }
@@ -83,19 +84,37 @@ class TrackIndexItem extends React.Component {
           </Link>
           <section className="track-index-bar">
             <section className="track-index-big-info">
-              {this.whichButton()}
-              <section className="track-index-big-text">
-                {this.authorInfo()}
-                <Link className="track-index-name-big" to={`/tracks/${this.props.track.author_id}/${this.props.track.id}`}>
-                  <li  key={this.props.track.id}>{this.props.track.title}</li>
-                </Link>
+              <section className="track-button-info-holder">
+                {this.whichButton()}
+                <section className="track-index-big-text">
+                  {this.authorInfo()}
+                  <Link className="track-index-name-big" to={`/tracks/${this.props.track.author_id}/${this.props.track.id}`}>
+                    <li  key={this.props.track.id}>{this.props.track.title}</li>
+                  </Link>
+                </section>
               </section>
+              <h1><i class="fa fa-repeat" aria-hidden="true"></i>{this.props.track.play_count}</h1>
             </section>
             <section className="track-index-bar-holder">
               {this.whichBar()}
             </section>
+            <CommentFormContainer style={"inline"} trackId={this.props.track.id}/>
           </section>
         </div>
+      );
+    } else {
+      return (
+        <section className="home-track-container">
+          <section className="home-track" style={{backgroundImage: `url(${this.props.track.image_url})`}}>
+            <section className="home-track-controller">
+              {this.whichButton()}
+            </section>
+          </section>
+          <section className="home-info-holder">
+            <h2>{this.props.author.username}</h2>
+            <h1>{this.props.track.title}</h1>
+          </section>
+        </section>
       );
     }
   }

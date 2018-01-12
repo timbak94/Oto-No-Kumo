@@ -99,3 +99,67 @@
   transform: translateX(-980px);
   transition: all .8s ease
 }
+
+
+/* home page tracks */
+
+.home-page-track {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+}
+
+.home-track {
+  border: 1px solid #ee512f;
+  height: 180px;
+  width: 180px;
+  background-size: contain;
+  background-repeat: 180px;
+}
+
+.home-info-holder {
+  width: 180px;
+}
+
+.play-button-home, .pause-button-home {
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, #66ffff, #cc99ff);
+  height: 70px;
+  width: 70px;
+  outline: none;
+  border: none;
+  transition: transform .5s;
+}
+
+.play-button-home:hover {
+  background: linear-gradient(to bottom right, #33ffff, #b366ff);
+  transform: rotate(360deg);
+}
+.pause-button-home:hover {
+  background: linear-gradient(to bottom right, #33ffff, #b366ff);
+  transform: rotate(-360deg);
+}
+
+.play-button-home:active, .pause-button-home:active  {
+  opacity: .5;
+  transform: rotate(360deg);
+}
+
+.home-track-controller {
+  height: 180px;
+  width: 180px;
+  background:linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .1));
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.home-track-controller:hover {
+  opacity: 1;
+}
+
+.home-page-track {
+  padding: 20px;
+}

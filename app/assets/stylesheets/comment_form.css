@@ -10,7 +10,6 @@
 }
 
 .comment-form form {
-  display: table-cell;
   vertical-align: middle;
   height: 40px;
   padding: 4px 8px;
@@ -28,4 +27,44 @@
   padding: 1px 3px;
   border-radius: 5px;
   border: 1px solid #d9d9d9 ;
+}
+
+.comment-form {
+  display: flex;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+/* inline */
+
+.comment-form-avatarinline {
+  width: 30px;
+  height: 30px;
+}
+
+.comment-forminline form {
+  vertical-align: middle;
+  height: 24px;
+  padding: 2px 8px;
+  background-color: #f2f2f2;
+  border: 1px solid #d9d9d9;
+}
+
+.comment-forminline input {
+  font-weight: 300;
+  width: 500px;
+  height: 20px;
+  outline: none;
+  font-size: 12px;
+  padding: 1px 3px;
+  border-radius: 5px;
+  border: 1px solid #d9d9d9 ;
+}
+
+.comment-forminline {
+  display: flex;
+}
+
+.comment-form-containerinline {
+  padding-left: 60px;
 }

@@ -3,7 +3,7 @@ import TrackIndexItemContainer from './track_index_item_container';
 
 const TrackIndex = (props) => {
   return (
-    <div>
+    <section className={`${props.style}-track`}>
     {props.tracks.map(track => (
       <TrackIndexItemContainer
       track={track}
@@ -11,7 +11,7 @@ const TrackIndex = (props) => {
       style={props.style}
       />
     ))}
-    </div>
+    </section>
   );
 };
 

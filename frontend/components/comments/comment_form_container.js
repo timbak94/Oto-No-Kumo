@@ -5,7 +5,8 @@ import CommentForm from './comment_form';
 const mapStateToProps = (store, ownProps) => {
   return {
     currentUser: store.session.currentUser,
-    trackId: ownProps.trackId
+    trackId: ownProps.trackId,
+    style: ownProps.style ? ownProps.style : ""
   };
 };
 

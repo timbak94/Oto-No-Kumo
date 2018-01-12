@@ -1,0 +1,9 @@
+.collection-container {
+  padding: 20px;
+}
+
+.collection-container > h1 {
+  font-size: 40px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid orange;
+}

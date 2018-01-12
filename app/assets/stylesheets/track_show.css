@@ -29,6 +29,14 @@
   outline: none;
 }
 
+.play-button-show:hover {
+  cursor: pointer;
+}
+
+.pause-button-show:hover {
+  cursor: pointer;
+}
+
 .track-show-head-no-image {
   padding: 30px;
   padding-right: 20px;

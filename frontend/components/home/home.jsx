@@ -25,18 +25,21 @@ class Home extends React.Component {
 
   render() {
     return (
-      <section>
-        TOP CHARTS
+      <section className="home-container">
+        <section className={`home-message-container ${this.state.genre}`}>
+          <h1>TOP CHARTS</h1>
+          <p>Check out the most played songs in each genre!</p>
+        </section>
         <nav>
           <ol className="charts-genre">
             <li onClick={this.handleClick} className={this.state.genre === "Rock" ? "home-show" : ""}>Rock</li>
             <li onClick={this.handleClick} className={this.state.genre === "Pop" ? "home-show" : ""}>Pop</li>
-            <li onClick={this.handleClick} className={this.state.genre === "Alt Rock" ? "home-show" : ""}>Alternative Rock</li>
-            <li onClick={this.handleClick} className={this.state.genre === "HHR" ? "home-show" : ""}>Hip Hop & Rap</li>
-            <li onClick={this.handleClick} className={this.state.genre === "Elec" ? "home-show" : ""}>Electronic</li>
+            <li onClick={this.handleClick} className={this.state.genre === "Alternative Rock" ? "home-show" : ""}>Alternative Rock</li>
+            <li onClick={this.handleClick} className={this.state.genre === "Hip Hop & Rap" ? "home-show" : ""}>Hip Hop & Rap</li>
+            <li onClick={this.handleClick} className={this.state.genre === "Electronic" ? "home-show" : ""}>Electronic</li>
             <li onClick={this.handleClick} className={this.state.genre === "Jazz" ? "home-show" : ""}>Jazz</li>
             <li onClick={this.handleClick} className={this.state.genre === "Piano" ? "home-show" : ""}>Piano</li>
-            <li onClick={this.handleClick} className={this.state.genre === "Classic" ? "home-show" : ""}>Classical</li>
+            <li onClick={this.handleClick} className={this.state.genre === "Classical" ? "home-show" : ""}>Classical</li>
             <li onClick={this.handleClick} className={this.state.genre === "Idol" ? "home-show" : ""}>Idol</li>
           </ol>
         </nav>
