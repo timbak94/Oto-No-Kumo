@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "missing-avatar-#{rand(1..3)}.png"
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "missing-avatar-1.png"
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 

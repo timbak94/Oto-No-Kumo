@@ -110,7 +110,7 @@
 }
 
 .home-track {
-  border: 1px solid #ee512f;
+  border: 1px solid #e6e6e6;
   height: 180px;
   width: 180px;
   background-size: contain;
@@ -121,7 +121,13 @@
   width: 180px;
 }
 
+.home-track-container-background {
+  background: linear-gradient(to bottom right, #846070, #70929c);
+}
+
 .play-button-home, .pause-button-home {
+  margin-left: 55px;
+  margin-top: 55px;
   text-align: center;
   font-size: 30px;
   color: white;
@@ -132,6 +138,15 @@
   outline: none;
   border: none;
   transition: transform .5s;
+}
+
+.landing-message {
+  text-align: center;
+  font-size: 30px;
+  padding-bottom: 20px;
+  margin: 15px 80px;
+  border-bottom: 1px solid #595959;
+  color: #333333;
 }
 
 .play-button-home:hover {
@@ -162,4 +177,15 @@
 
 .home-page-track {
   padding: 20px;
+}
+
+.home-info-holder h2 {
+  color: #bfbfbf;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.home-info-holder h1 {
+  color: #4d4d4d;
+  font-size: 17px;
 }

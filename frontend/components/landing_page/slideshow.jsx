@@ -32,7 +32,7 @@ class Slideshow extends React.Component {
 
           </section>
           <section className="slide-two">
-            <h1> VIDEO GAME MUSIC? WE GOT IT TOO. </h1>
+            <h1> NON-ANIME MUSIC? WE GOT IT TOO. </h1>
           </section>
         </section>
         <ul className="slideshow-nav">

@@ -35,7 +35,7 @@ class LandingPage extends React.Component {
             </nav>
             <Slideshow />
           </section>
-          <h1>Check out some songs selected by our Admins!</h1>
+          <h1 className="landing-message">Check out some songs selected by our Admins!</h1>
           <TrackIndex tracks={this.props.tracks} style={"home-page"}/>
         </section>
       );

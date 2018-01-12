@@ -105,14 +105,16 @@ class TrackIndexItem extends React.Component {
     } else {
       return (
         <section className="home-track-container">
-          <section className="home-track" style={{backgroundImage: `url(${this.props.track.image_url})`}}>
-            <section className="home-track-controller">
-              {this.whichButton()}
+          <section className="home-track-container-background">
+            <section className="home-track" style={{backgroundImage: `url(${this.props.track.image_url})`}}>
+              <section className="home-track-controller">
+                {this.whichButton()}
+              </section>
             </section>
           </section>
           <section className="home-info-holder">
-            <h2>{this.props.author.username}</h2>
             <h1>{this.props.track.title}</h1>
+            <h2>{this.props.author.username}</h2>
           </section>
         </section>
       );

@@ -23,6 +23,7 @@
   height: 30px;
   width: 30px;
   z-index: 2000000;
+  background: linear-gradient(to bottom right, #846070, #70929c);
 }
 
 .music-controller {
@@ -79,6 +80,10 @@
   outline: none;
 }
 
+.music-controller:hover {
+  color: red;
+}
+
 .volume-slider {
   -webkit-appearance: slider-vertical;
   height: 100px;
@@ -119,8 +124,7 @@
 .song-info {
   margin-top: 10px;
   display: flex;
-  width: 200px;
-  margin-right: 20px;
+  width: 400px;
 }
 
 .song-info ul {

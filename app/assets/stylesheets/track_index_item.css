@@ -2,6 +2,7 @@
   width: 150px;
   height: 150px;
   border: 1px solid #e6e6e6;
+  background: linear-gradient(to bottom right, #846070, #70929c);
 }
 
 .track-index-item-big {
@@ -23,6 +24,7 @@
 .track-index-image-reg {
   width: 150px;
   height: 150px;
+  background: linear-gradient(to bottom right, #846070, #70929c);
 }
 
 .track-index-author {

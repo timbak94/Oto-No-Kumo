@@ -10,9 +10,14 @@ class CommentItem extends React.Component {
   render() {
     if (this.props.author) {
       return (
-        <section className={"animated slideInRight"}>
-          <h2>{this.props.comment.body}</h2>
-          <h3>{this.props.author.username}</h3>
+        <section className={"animated slideInRight comment-item"}>
+          <img className="comment-avatar" src={this.props.author.avatar_url}></img>
+          <section>
+            <Link to={`/users/${this.props.author.id}`}>
+              <h3>{this.props.author.username}</h3>
+            </Link>
+            <h2>{this.props.comment.body}</h2>
+          </section>
         </section>
       );
     } else {

@@ -52,11 +52,11 @@ class TrackShow extends React.Component {
   ownership() {
     if (this.props.currentUser.id === this.props.track.author_id) {
       return (
-        <nav>
-          <button onClick={(e) => {e.preventDefault(), this.props.showModal(
+        <nav className="ownership">
+          <button className="edit-track" onClick={(e) => {e.preventDefault(), this.props.showModal(
               <TrackFormContainer type={"edit"} trackId={this.props.track.id} hideModal={hideModal}/>)
                 ;}}>Edit Track</button>
-              <button onClick={ this.handleDelete }>Delete Track</button>
+              <button className="delete-track" onClick={ this.handleDelete }>Delete Track</button>
         </nav>
       );
     } else {
@@ -152,10 +152,11 @@ class TrackShow extends React.Component {
               <Link to={`/users/${this.props.author.id}`}>
                 <h1>{this.props.author.username}</h1>
               </Link>
+              {this.ownership()}
             </section>
             <section className="description">
-              {this.ownership()}
-              {this.props.track.description}
+              <h1> Description </h1>
+              <pre>{this.props.track.description}</pre>
             </section>
             <CommentIndexContainer id={this.props.track.id}/>
           </section>

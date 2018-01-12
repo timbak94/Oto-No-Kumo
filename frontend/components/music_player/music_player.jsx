@@ -90,9 +90,12 @@ class MusicPlayer extends React.Component {
         <section className="song-info">
           <img src={this.props.song.image_url} className="player-image"></img>
           <ul>
-            <li className="author-name">{this.props.author.username}</li>
-            <li>{this.props.song.title}
-            </li>
+            <Link to={`/users/${this.props.author.id}`}>
+              <li className="author-name">{this.props.author.username}</li>
+            </Link>
+            <Link to={`/tracks/${this.props.song.id}`}>
+              <li style={{color: "black"}}>{this.props.song.title}</li>
+            </Link>
           </ul>
 
         </section>

@@ -55,14 +55,14 @@
 
 .home-message-container {
   overflow: hidden;
-  padding: 20px;
+  padding: 10px 20px;
   width: 1240px;
-  height: 200px;
+  height: 235px;
 }
 
 .Piano {
   width: 1180px;
-  height: 200px;
+  height: 250px;
   background: url("https://78.media.tumblr.com/803ac110be97058a35610863607f42a4/tumblr_n8kbz7LSma1ts5lkuo1_500.gif");
   background-size: 100% ;
   background-position: top;
@@ -70,12 +70,82 @@
 
 .home-message-container {
   color: white;
+  text-align: center;
+}
+
+.home-message-container h1 {
+  background-color: rgba(0,0,0, .3);
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.home-message-container h2 {
+  display: inline-block;
+  padding: 10px;
+  background-color: rgba(0,0,0, .3);
+  font-size: 80px;
+  font-weight: 700;
 }
 
 .Rock {
   width: 1180px;
-  height: 200px;
+  height: 250px;
   background: url("https://78.media.tumblr.com/002a892cf3f9902235e6ec17b1471630/tumblr_n2u8dvDOOo1tv44eho1_500.gif");
   background-size: 100% ;
   background-position: center;
+}
+
+.Pop {
+  width: 1180px;
+  height: 250px;
+  background: url("https://i.giphy.com/media/eEv3rA3eG2Gs0/giphy.webp");
+  background-size: 100% ;
+  background-position: center;
+}
+
+.Alternative-Rock {
+  width: 1180px;
+  height: 250px;
+  background: url("https://78.media.tumblr.com/5a660bd5fd6420bce19439333a957230/tumblr_mlqxz1GfFB1qbtloio1_500.gif");
+  background-size: 100% ;
+  background-position: center;
+}
+
+.HipHop {
+  width: 1180px;
+  height: 250px;
+  background: url("https://i.imgur.com/UWQuQFd.gif");
+  background-position: 50% 20%;
+}
+
+.Electronic {
+  width: 1180px;
+  height: 250px;
+  background: url("http://78.media.tumblr.com/4ddd2bfb341ac05e446f98725a83db3e/tumblr_ncdck56RBP1rlpxqno2_500.gif");
+  background-size: 100% ;
+}
+
+.Jazz {
+  width: 1180px;
+  height: 250px;
+  background: url("http://fdzeta.com/imgcache/242655dz.gif");
+  background-size: 100% ;
+  background-position: 50% 10%;
+}
+
+.Classical {
+  width: 1180px;
+  height: 250px;
+  background: url("https://assets-auto.rbl.ms/7c8704cc584bd60b24cb4362871532354c118c2ca4aebf780cda446a062722b2");
+  background-size: 100% ;
+  background-position: top;
+}
+
+.Idol {
+  width: 1180px;
+  height: 250px;
+  background: url("https://i.giphy.com/media/vazAE7z1rqKSQ/giphy.webp");
+  background-size: 100% ;
+  background-position: top;
 }
