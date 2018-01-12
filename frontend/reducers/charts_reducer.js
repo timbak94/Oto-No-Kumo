@@ -2,7 +2,7 @@ import { RECEIVE_CHART_TRACKS, REMOVE_TRACK } from '../actions/track_actions';
 import { RECEIVE_SINGLE_USER } from '../actions/user_actions';
 import merge from 'lodash/merge';
 
-const chartsReducer = (oldState = {Rock:[], Pop:[], "Alternative Rock":[], "Hip Hop & Rap":[], Electronic:[], Jazz:[], Piano:[], Classical:[], Idol:[] }, action) => {
+const chartsReducer = (oldState = {Rock:[], Pop:[], "Alternative Rock":[], "HipHop Rap":[], Electronic:[], Jazz:[], Piano:[], Classical:[], Idol:[] }, action) => {
   Object.freeze(oldState);
   let newState = merge({}, oldState);
   switch(action.type) {

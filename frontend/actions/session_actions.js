@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/session_api_util';
+import { startLoading, stopLoading } from './loading_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
@@ -24,13 +25,16 @@ export const clearErrors = () => {
   };
 };
 
-export const signUpUser = (user) => dispatch => (
-  APIUtil.signup(user).then( user => (
-    dispatch(recieveCurrentUser(user))
-  ), err => (
-    dispatch(recieveErrors(err.responseJSON))
-  ))
-);
+export const signUpUser = (user) => dispatch => {
+  dispatch(startLoading());
+  return APIUtil.signup(user).then( user => {
+    dispatch(recieveCurrentUser(user));
+    dispatch(stopLoading());
+  }, err => {
+    dispatch(stopLoading());
+    dispatch(recieveErrors(err.responseJSON));
+  });
+};
 
 export const logInUser = (user) => dispatch => (
   APIUtil.login(user).then( user => (

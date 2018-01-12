@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 const GENRES = [
   "Rock",
   "Pop",
-  "Hip Hip & Rap",
+  "HipHop Rap",
   "Electronic",
   "Jazz",
   "Piano",
@@ -33,6 +33,7 @@ class TrackForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
+    this.whichButton  = this.whichButton.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -111,6 +112,14 @@ class TrackForm extends React.Component {
     }
   }
 
+  whichButton() {
+    if (this.props.load) {
+      return (<button className="load-holder" disabled> Processing <i id="spinner" class="fa fa-spinner" aria-hidden="true"></i> </button>);
+    } else {
+      return (<input type="submit" value={this.props.type === "edit" ? "Save changes" : "Upload!"} id="track-form-submit" />);
+    }
+  }
+
   render() {
     return (
       <div className="track-form-container">
@@ -130,7 +139,7 @@ class TrackForm extends React.Component {
             <div className="track-fields">
               <label> Title
                 <div className="buffer" />
-                <input type="text" value={this.state.title} onChange={this.update('title')} className="track-form-title" />
+                <input placeholder="required *" type="text" value={this.state.title} onChange={this.update('title')} className="track-form-title" />
               </label>
               <div className="buffer" />
               <label> Genre
@@ -149,14 +158,14 @@ class TrackForm extends React.Component {
               <div className="buffer" />
               <label> Description
                 <div className="buffer" />
-                <textarea type="text" onChange={this.update('description')} className="track-form-description">{this.state.description}</textarea>
+                <textarea placeholder="required *" type="text" onChange={this.update('description')} className="track-form-description">{this.state.description}</textarea>
               </label>
               <div className="buffer" />
               </div>
           </div>
           <div className="track-bottom-buttons">
             <button onClick={(e) => (e.preventDefault(), this.handleLeave())} className="close-track-form">Cancel</button>
-            <input type="submit" value={this.props.type === "edit" ? "Save changes" : "Save"} id="track-form-submit" />
+            {this.whichButton()}
           </div>
         </form>
       </div>

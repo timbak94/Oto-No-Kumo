@@ -46,23 +46,23 @@
   margin-left: 15px;
 }
 
-.track-show-text section, .track-show-text h1 {
+.track-show-text h1 {
   color: white;
-  background-color: rgba(0,0,0,.5);
   padding: 5px 5px;
   margin-bottom: 10px;
-}
-
-.track-show-text section {
-  width: auto;
-  margin-top: -7px;
+  background-color: rgba(0,0,0,.5);
 }
 
 a {
   text-decoration: none;
 }
 
-.track-show-text h1 {
+.track-show-author {
+  display: inline-block;
+}
+
+.track-show-title {
+  cursor: default;
   font-size: 30px;
 }
 
@@ -80,9 +80,6 @@ a {
   border-radius: 50%;
 }
 
-.track-show-below-form {
-  margin-top: 20px;
-}
 
 .track-show-head-no-image-no-bar {
   display: flex;
@@ -90,5 +87,26 @@ a {
 }
 
 .track-show-more-text {
+  display: flex;
+}
+
+.genre {
+  cursor: default;
+  font-size: 15px;
+  padding: 4px;
+  color: white;
+  background-color: rgb(180, 180, 180);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.play-count {
+  cursor: default;
+  opacity: 0.5;
+  text-align: right;
+}
+
+.track-show-below-form {
+  margin-top: 20px;
   display: flex;
 }

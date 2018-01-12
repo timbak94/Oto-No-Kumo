@@ -35,7 +35,7 @@ class Home extends React.Component {
             <li onClick={this.handleClick} className={this.state.genre === "Rock" ? "home-show" : ""}>Rock</li>
             <li onClick={this.handleClick} className={this.state.genre === "Pop" ? "home-show" : ""}>Pop</li>
             <li onClick={this.handleClick} className={this.state.genre === "Alternative Rock" ? "home-show" : ""}>Alternative Rock</li>
-            <li onClick={this.handleClick} className={this.state.genre === "Hip Hop & Rap" ? "home-show" : ""}>Hip Hop & Rap</li>
+            <li onClick={this.handleClick} className={this.state.genre === "HipHop Rap" ? "home-show" : ""}>HipHop Rap</li>
             <li onClick={this.handleClick} className={this.state.genre === "Electronic" ? "home-show" : ""}>Electronic</li>
             <li onClick={this.handleClick} className={this.state.genre === "Jazz" ? "home-show" : ""}>Jazz</li>
             <li onClick={this.handleClick} className={this.state.genre === "Piano" ? "home-show" : ""}>Piano</li>

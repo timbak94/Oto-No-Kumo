@@ -10,7 +10,7 @@ class CommentItem extends React.Component {
   render() {
     if (this.props.author) {
       return (
-        <section>
+        <section className={"animated slideInRight"}>
           <h2>{this.props.comment.body}</h2>
           <h3>{this.props.author.username}</h3>
         </section>

@@ -122,16 +122,18 @@ class TrackShow extends React.Component {
             <section className="track-show-head-no-image-no-bar">
               <section className="track-show-more-text">
                 {this.whichButton()}
-                <ul className="track-show-text">
-                  <Link to={`/users/${this.props.author.id}`}>
-                    <li> {this.props.author.username} </li>
+                <section className="track-show-text">
+                  <Link className="link-a" to={`/users/${this.props.author.id}`}>
+                    <h1 className="track-show-author">
+                      {this.props.author.username}
+                    </h1>
                   </Link>
-                  <li> {this.props.track.title} </li>
-                </ul>
+                  <h1 className="track-show-title">{this.props.track.title}</h1>
+                </section>
               </section>
-              <ul>
-                <li>{this.props.track.genre}</li>
-                <li><i class="fa fa-repeat" aria-hidden="true"></i>{this.props.track.play_count}</li>
+              <ul className="play-count-genre">
+                <li className="genre" > #{this.props.track.genre}</li>
+                <li className="play-count" ><i class="fa fa-repeat" aria-hidden="true"></i>{this.props.track.play_count}</li>
               </ul>
             </section>
             <section className="bar-hold">
@@ -151,8 +153,10 @@ class TrackShow extends React.Component {
                 <h1>{this.props.author.username}</h1>
               </Link>
             </section>
-            <section> {this.props.track.description} </section>
-            {this.ownership()}
+            <section className="description">
+              {this.ownership()}
+              {this.props.track.description}
+            </section>
             <CommentIndexContainer id={this.props.track.id}/>
           </section>
         </section>

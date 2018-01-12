@@ -2,7 +2,7 @@ class Track < ApplicationRecord
   GENRES = [
     "Rock",
     "Pop",
-    "Hip Hip & Rap",
+    "HipHop Rap",
     "Electronic",
     "Jazz",
     "Piano",

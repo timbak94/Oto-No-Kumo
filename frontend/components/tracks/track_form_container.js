@@ -28,6 +28,7 @@ const mapStateToProps = (state, ownProps) => {
     track: track,
     tracksLength: keys.length,
     lastTrackId: lastId,
+    load: state.loading.load
   };
 
 };

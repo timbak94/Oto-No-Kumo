@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-
 import { logInUser, clearErrors } from '../../actions/session_actions';
 
 import NewSessionForm from './new_session';
