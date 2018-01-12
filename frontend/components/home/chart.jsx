@@ -32,7 +32,7 @@ class Chart extends React.Component {
           <li>10</li>
         </ol>
         <ul>
-          {this.props.tracks.map(track => (
+          {this.props.tracks.slice(10).map(track => (
             <li>
               <TrackIndexItemContainer
                 track={track}
