@@ -120,7 +120,6 @@ class MusicPlayer extends React.Component {
   }
 
 
-// HEY U GOTTA CHANGE THIS SEEKING TO MAKE IT STORE-BASED, THAT WAY THE OTHER COMPONENTS CAN AFFECT SEEKING YOU IDIOT
   handleSeek(e) {
     e.preventDefault();
     this.props.seekSong(e.target.value);

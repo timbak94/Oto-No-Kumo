@@ -8,7 +8,7 @@ class PlayBar extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-      this.length = this.props.current + this.props.remaining;
+      this.length = nextProps.current + nextProps.remaining;
   }
 
   timeFormat(sec) {

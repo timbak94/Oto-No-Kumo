@@ -13,7 +13,7 @@ class TrackShow extends React.Component {
     this.handleStart = this.handleStart.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
     this.handlePause = this.handlePause.bind(this);
-
+    this.handleAdd = this.handleAdd.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -107,6 +107,11 @@ class TrackShow extends React.Component {
     }
   }
 
+  handleAdd(e) {
+    e.preventDefault();
+    this.props.addPlaylist(this.props.track);
+  }
+
   render() {
 
     if (!this.props.track) {
@@ -134,6 +139,7 @@ class TrackShow extends React.Component {
               <ul className="play-count-genre">
                 <li className="genre" > #{this.props.track.genre}</li>
                 <li className="play-count" ><i class="fa fa-repeat" aria-hidden="true"></i>{this.props.track.play_count}</li>
+                <li className="add-playlist" onClick={this.handleAdd}>Playlist+</li>
               </ul>
             </section>
             <section className="bar-hold">

@@ -24,11 +24,12 @@
 }
 
 .comment-item h3 {
-  cursor: default;
+  cursor: pointer;
   color: #737373;
   font-size: 12px;
 }
 
 .comment-item h2 {
+
   margin-top: 4px;
 }

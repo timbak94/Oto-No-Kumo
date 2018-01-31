@@ -14,6 +14,7 @@ class CommentForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     let comment = this.state;
     this.props.newComment(comment);
     this.setState({body: "", placeholder: "Submitted!"});

@@ -6,6 +6,8 @@ export const PAUSE_SONG = "PAUSE_SONG";
 export const SEEK_SONG = "SEEK_SONG";
 export const CLEAR_SEEK = "CLEAR_SEEK";
 export const UPDATE_TIME = "UPDATE_TIME";
+export const ADD_PLAYLIST = 'ADD_PLAYLIST';
+export const REMOVE_PLAYLIST = "REMOVE_PLAYLIST";
 import {increasePlayCount } from '../util/track_api_util';
 
 export const requestCurrentSong = (song) => (dispatch) => {
@@ -16,6 +18,20 @@ export const requestCurrentSong = (song) => (dispatch) => {
 export const playSong = () => {
   return {
     type: PLAY_SONG
+  };
+};
+
+export const addPlaylist = (song) => {
+  return {
+    type: ADD_PLAYLIST,
+    song: song,
+  };
+};
+
+export const removePlaylist = (songId) => {
+  return {
+    type: REMOVE_PLAYLIST,
+    songId: songId,
   };
 };
 

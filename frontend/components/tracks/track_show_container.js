@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { requestSingleTrack, deleteTrack } from '../../actions/track_actions';
-import { requestCurrentSong, playSong, pauseSong } from '../../actions/player_actions';
+import { requestCurrentSong, playSong, pauseSong, addPlaylist } from '../../actions/player_actions';
 import { fetchComments } from '../../actions/comment_actions';
 import { fetchSingleUser } from '../../actions/user_actions';
 import {showModal} from '../../modal/actions_reducers';
@@ -17,6 +17,7 @@ const mapStateToProps = (state, ownProps) => {
     comments: comments,
     status: state.player.status,
     currentSong: state.player.currentSong,
+    playlist: state.playlist
   };
 };
 
@@ -29,7 +30,8 @@ const mapDispatchToProps = (dispatch) => {
     requestCurrentSong: (song) => dispatch(requestCurrentSong(song)),
     fetchComments: (id) => dispatch(fetchComments(id)),
     playSong: () => dispatch(playSong()),
-    pauseSong: () => dispatch(pauseSong())
+    pauseSong: () => dispatch(pauseSong()),
+    addPlaylist: (song)=>dispatch(addPlaylist(song))
   };
 
 };
