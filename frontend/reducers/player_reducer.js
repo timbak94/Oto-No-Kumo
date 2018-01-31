@@ -10,7 +10,7 @@ import { RECEIVE_CURRENT_SONG,
  } from '../actions/player_actions';
 import merge from 'lodash/merge';
 
-const playerReducer = (oldState = {currentSong: null, status: "playing", playlist: [], current: null, remaining: null, seek: null}, action ) => {
+const playerReducer = (oldState = {currentSong: null, status: "null", playlist: [], current: null, remaining: null, seek: null}, action ) => {
   Object.freeze(oldState);
   let newState = merge({}, oldState);
   switch(action.type) {

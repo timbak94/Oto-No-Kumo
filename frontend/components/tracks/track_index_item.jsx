@@ -102,7 +102,7 @@ class TrackIndexItem extends React.Component {
           </section>
         </div>
       );
-    } else {
+    } else if (this.props.style === "home-page") {
       return (
         <section className="home-track-container">
           <section className="home-track-container-background">
@@ -113,6 +113,16 @@ class TrackIndexItem extends React.Component {
             </section>
           </section>
           <section className="home-info-holder">
+            <h1>{this.props.track.title}</h1>
+            <h2>{this.props.author.username}</h2>
+          </section>
+        </section>
+      );
+    } else {
+      return (
+        <section className="playlist-item">
+          <img id="playlist-album" src={this.props.track.image_url}></img>
+          <section className="playlist-text">
             <h1>{this.props.track.title}</h1>
             <h2>{this.props.author.username}</h2>
           </section>

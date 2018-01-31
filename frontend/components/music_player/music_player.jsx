@@ -1,6 +1,7 @@
 import React from 'react';
 import Sound from 'react-sound';
 import { Link, withRouter } from 'react-router-dom';
+import TrackIndex from '../tracks/track_index';
 
 class MusicPlayer extends React.Component {
   constructor(props) {
@@ -17,7 +18,8 @@ class MusicPlayer extends React.Component {
       playStatus: status,
       currentTime: 0,
       length: 1,
-      showVolume: "hidden-vol"
+      showVolume: "hidden-vol",
+      showPlaylist: "hidden"
     };
     this.handlePlay = this.handlePlay.bind(this);
     this.handlePause = this.handlePause.bind(this);
@@ -28,7 +30,10 @@ class MusicPlayer extends React.Component {
     this.handleVolume = this.handleVolume.bind(this);
     this.setStatus = this.setStatus.bind(this);
     this.showVolume = this.showVolume.bind(this);
-    // this.barIncrement = this.barIncrement.bind(this);
+    this.nextSong = this.nextSong.bind(this);
+    this.showPlaylist = this.showPlaylist.bind(this);
+    this.playlistIdx = 0;
+    this.looping = false;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -46,6 +51,9 @@ class MusicPlayer extends React.Component {
       if (this.props.author === null) {
         this.props.fetchSingleUser(this.props.song.author_id);
       }
+    }
+    if (this.props.playlist.length < 1 && nextProps.playlist[0]) {
+      this.props.requestCurrentSong(nextProps.playlist[0]);
     }
   }
 
@@ -149,6 +157,20 @@ class MusicPlayer extends React.Component {
     return ans;
   }
 
+  nextSong() {
+    this.playlistIdx += 1;
+    this.props.requestCurrentSong(this.props.playlist[this.playlistIdx]);
+  }
+
+  showPlaylist(e) {
+    e.preventDefault();
+    if (this.state.showPlaylist === "hidden") {
+      this.setState({showPlaylist: "animated fadeInUp"});
+    } else {
+      this.setState({showPlaylist: "hidden"});
+    }
+  }
+
   render() {
     if (this.props.song) {
       return (
@@ -163,6 +185,7 @@ class MusicPlayer extends React.Component {
                 onTimeUpdate={this.handleTime}
                 onPause={(e) => {e.preventDefault(); this.setStatus("paused");}}
                 onPlay={(e) => {e.preventDefault(); this.setStatus("playing");}}
+                onEnded={(e)=> {e.preventDefault(); this.nextSong();}}
                 ref={(audio) => { this.audioPlayer = audio; }}
                 />
               {this.whichButton()}
@@ -184,6 +207,12 @@ class MusicPlayer extends React.Component {
                 </section>
               </div>
               {this.songInfo()}
+              <section className="playlist-handler">
+                <i onClick={this.showPlaylist} class="fa fa-bars" aria-hidden="true"></i>
+                <section className={`playlistHolder ${this.state.showPlaylist}`}>
+                  <TrackIndex tracks={this.props.playlist} style={"playlist"}/>
+                </section>
+              </section>
             </section>
           </section>
         </div>
@@ -196,64 +225,3 @@ class MusicPlayer extends React.Component {
 
 
 export default withRouter(MusicPlayer);
-
-
-
-
-
-//  OOOOOLD STUFFFFFFFFFFFFFFFFF ~~~~~~~~~~~~~~~~~~~~
-// let songMaker2 = (  <Sound
-//   url={this.props.song.song_url}
-//   playStatus={this.state.playStatus}
-//   playFromPosition={this.state.pausedPoint}
-//   onPause={ (obj) => { this.setState({pausedPoint: (obj.position + 450)});}}
-//   onLoading={ (obj) => {
-//     this.songLength = obj.duration;
-//   }
-// }
-// onLoad={()=>{
-// }}
-// volume={50}
-// onFinishedPlaying={() => { clearInterval(this.hello);}}
-// /> );
-
-// buildBar() {
-//   let elem = document.getElementById("audio");
-//   let length = elem.duration;
-//   let actualLength = length / 1000;
-//   let arr = [];
-//   for (var i = 0; i < actualLength; i++) {
-//     arr.push(i);
-//   }
-//   this.setState({progressArray: arr});
-// }
-//
-// progressBar() {
-//   if (this.state.progressArray) {
-//
-//     return (
-//       <section>
-//         <ul className="progress-bar" onClick={this.handleProgressClick}>
-//           {this.progressArray.map(box => (
-//             <li key={box} className="progress-box" value={box}></li>
-//           ))}
-//         </ul>
-//         <div id="progress-behind"/>
-//       </section>
-//     );
-//   } else {
-//     return null;
-//   }
-// }
-//
-// barIncrement() {
-//   let elem = document.getElementById("progress-behind");
-//   let width;
-//   if (elem.style.width === "") {
-//     width = 0 ;
-//   } else {
-//     width = parseFloat(elem.style.width);
-//   }
-//   let inc = (500 / (this.songLength / 1000));
-//   elem.style.width = parseFloat(width+inc) + "px";
-// }

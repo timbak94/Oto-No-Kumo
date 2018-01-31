@@ -23,7 +23,8 @@ const mapStateToProps = (state, ownProps) => {
     show: showSong,
     status: state.player.status ? state.player.status : "stopped",
     author: author ? author : null,
-    seek: state.player.seek
+    seek: state.player.seek,
+    playlist: state.player.playlist
   };
 };
 
