@@ -25,3 +25,7 @@
     content: "\f01e";
     margin-right: 7px;
 }
+
+.playlist-item {
+  display: flex;
+}
