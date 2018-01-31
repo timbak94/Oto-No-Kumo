@@ -123,8 +123,12 @@ class TrackIndexItem extends React.Component {
         <section className="playlist-item">
           <img id="playlist-album" src={this.props.track.image_url}></img>
           <section className="playlist-text">
-            <h1>{this.props.track.title}</h1>
-            <h2>{this.props.author.username}</h2>
+            <Link className="track-index-title" to={`/tracks/${this.props.track.id}`}>
+              <li key={this.props.track.id}>{this.props.track.title}</li>
+            </Link>
+            <Link className="track-index-author" to={`/users/${this.props.author.id}`}>
+              <li key={this.props.author.id}>{this.props.author.username}</li>
+            </Link>
           </section>
         </section>
       );

@@ -149,7 +149,7 @@
 }
 
 #playlist-album {
-  height: 30px;
+  height: 40px;
   width: auto;
 }
 
@@ -173,4 +173,8 @@
 
 .playlist-item:hover {
   background-color: #f2f2f2;
+}
+
+li {
+  list-style: none;
 }
