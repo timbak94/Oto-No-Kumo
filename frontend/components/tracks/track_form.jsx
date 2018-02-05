@@ -131,7 +131,7 @@ class TrackForm extends React.Component {
               <div className="upload-btn-wrapper">
                 {this.showImage()}
                 <button className="real-avatar-button"> <i className="fa fa-camera" aria-hidden="true"></i> Update Image </button>
-                <input className="file-button-avatar" type="file" onChange={this.updateFile} />
+                <input className="file-button-avatar" type="file" accept=".png, .jpeg, .jpg" onChange={this.updateFile} />
               </div>
             </div>
             <h3>{this.renderErrors()}</h3>

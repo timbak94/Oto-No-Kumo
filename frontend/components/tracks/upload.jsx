@@ -45,7 +45,7 @@ class Upload extends React.Component {
           <h1>Upload to Oto no Kumo</h1>
           <div className="upload-btn-wrapper">
             <button className="real-button"> Choose a file to upload </button>
-            <input className="file-button" type="file" onChange={this.updateFile} />
+            <input className="file-button" type="file" accept=".mp3" onChange={this.updateFile} />
           </div>
         </section>
       </section>
