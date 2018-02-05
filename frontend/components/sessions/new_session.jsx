@@ -13,6 +13,7 @@ class NewSessionForm extends React.Component {
       errors: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -44,6 +45,11 @@ class NewSessionForm extends React.Component {
     this.props.logInUser(user);
   }
 
+  handleClick(e) {
+    e.preventDefault();
+    this.props.logInUser({username: "guest", password: "starwars"});
+  }
+
   renderErrors() {
     if (this.props.errors){
       return(
@@ -61,8 +67,10 @@ class NewSessionForm extends React.Component {
   render() {
     return (
       <div className="sign-form-container">
-          <section className={`modal-screen animated ${this.state.modal}`} onClick={(e) => (e.preventDefault(), this.handleLeave())}><div id="closingx">x</div></section>
-          <h1></h1>
+          <section className={`modal-screen animated ${this.state.modal}`}
+            onClick={(e) => (e.preventDefault(), this.handleLeave())}>
+            <div id="closingx">x</div>
+          </section>
         <form onSubmit={this.handleSubmit} className={`SignUpForm animated ${this.state.slide}`}>
           <h3>{this.renderErrors()}</h3>
           <div className="SignUpFields">
@@ -74,6 +82,7 @@ class NewSessionForm extends React.Component {
               <input type="password" placeholder="Your Password" value={this.state.password} onChange={this.update('password')} className={`signup-input ${this.state.errors}`} />
             </label>
             <input type="submit" value="Log In!" className="submit-button"/>
+            <button onClick={this.handleClick} className="submit-button"> Guest Login</button>
           </div>
         <br></br>
         </form>

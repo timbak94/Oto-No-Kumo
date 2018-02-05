@@ -26,7 +26,7 @@ class LandingPage extends React.Component {
               </section>
               <ul>
                 <li>
-                  <button onClick={(e) => {e.preventDefault(), this.props.showModal(<NewSessionContainer hideModal={hideModal}/>)}}>Login</button>
+                  <button onClick={(e) => {e.preventDefault(), this.props.showModal(<NewSessionContainer hideModal={hideModal}/>)}}>Login / Guest Login</button>
                 </li>
                 <li>
                   <button id="signup-button" onClick={(e) => {e.preventDefault(), this.props.showModal(<NewUserContainer hideModal={hideModal}/>)}}>Create Account</button>
