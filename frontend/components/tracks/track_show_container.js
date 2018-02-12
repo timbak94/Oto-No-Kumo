@@ -17,7 +17,7 @@ const mapStateToProps = (state, ownProps) => {
     comments: comments,
     status: state.player.status,
     currentSong: state.player.currentSong,
-    playlist: state.playlist
+    playlist: state.player.playlist
   };
 };
 

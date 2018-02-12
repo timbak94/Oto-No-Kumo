@@ -38,11 +38,27 @@ class TrackIndexItem extends React.Component {
       if (this.props.currentSong) {
         if (this.props.currentSong.id === this.props.track.id) {
           if (this.props.status === "paused") {
-            return ( <button onClick={this.handlePlay} className={`play-button${this.props.style === "home-page" ? "-home" : ""}`}> <i className="fa fa-play" aria-hidden="true"></i> </button> );
-          } else { return ( <button onClick={this.handlePause} className={`pause-button${this.props.style === "home-page" ? "-home" : ""}`}> <i className="fa fa-pause" aria-hidden="true"></i></button> ); }
-        } else { return ( <button onClick={this.handleStart} className={`play-button${this.props.style === "home-page" ? "-home" : ""}`}> <i className="fa fa-play" aria-hidden="true"></i> </button> ); }
+            return ( <button
+              onClick={this.handlePlay}
+              className={`play-button${this.props.style === "home-page" ? "-home" : ""}`}>
+            <i className="fa fa-play" aria-hidden="true"></i>
+            </button> );
+          } else { return ( <button
+            onClick={this.handlePause}
+            className={`pause-button${this.props.style === "home-page" ? "-home" : ""}`}>
+            <i className="fa fa-pause" aria-hidden="true"></i>
+          </button> ); }
+        } else { return ( <button
+          onClick={this.handleStart}
+          className={`play-button${this.props.style === "home-page" ? "-home" : ""}`}>
+          <i className="fa fa-play" aria-hidden="true"></i>
+          </button> ); }
       } else {
-        return ( <button onClick={this.handleStart} className={`play-button${this.props.style === "home-page" ? "-home" : ""}`}> <i className="fa fa-play" aria-hidden="true"></i> </button> );
+        return ( <button
+          onClick={this.handleStart}
+          className={`play-button${this.props.style === "home-page" ? "-home" : ""}`}>
+          <i className="fa fa-play" aria-hidden="true"></i>
+          </button> );
       }
     }
   }
@@ -75,6 +91,16 @@ class TrackIndexItem extends React.Component {
     }
   }
 
+  showCommentForm() {
+    if (this.props.currentSong && this.props.currentSong.id === this.props.track.id) {
+      return (
+        <CommentFormContainer style={"inline"} trackId={this.props.track.id}/>
+      );
+    } else {
+      return null;
+    }
+  }
+
   render() {
     if (this.props.style === "big-list") {
       return (
@@ -98,7 +124,7 @@ class TrackIndexItem extends React.Component {
             <section className="track-index-bar-holder">
               {this.whichBar()}
             </section>
-            <CommentFormContainer style={"inline"} trackId={this.props.track.id}/>
+              {this.showCommentForm()}
           </section>
         </div>
       );
@@ -121,15 +147,18 @@ class TrackIndexItem extends React.Component {
     } else {
       return (
         <section className="playlist-item">
-          <img id="playlist-album" src={this.props.track.image_url}></img>
-          <section className="playlist-text">
-            <Link className="track-index-title" to={`/tracks/${this.props.track.id}`}>
-              <li key={this.props.track.id}>{this.props.track.title}</li>
-            </Link>
-            <Link className="track-index-author" to={`/users/${this.props.author.id}`}>
-              <li key={this.props.author.id}>{this.props.author.username}</li>
-            </Link>
+          <section className="playlist-info">
+            <img id="playlist-album" src={this.props.track.image_url}></img>
+            <section className="playlist-text">
+              <Link className="track-index-title" to={`/tracks/${this.props.track.author_id}/${this.props.track.id}`}>
+                <li key={this.props.track.id}>{this.props.track.title}</li>
+              </Link>
+              <Link className="track-index-author" to={`/users/${this.props.author.id}`}>
+                <li key={this.props.author.id}>{this.props.author.username}</li>
+              </Link>
+            </section>
           </section>
+          <i id="remove-playlist" class="fa fa-times"></i>
         </section>
       );
     }

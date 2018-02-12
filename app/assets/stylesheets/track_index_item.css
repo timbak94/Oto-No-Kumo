@@ -72,3 +72,11 @@
   padding: 10px;
   margin-bottom: 5px;
 }
+
+.track-index-title {
+  color: #404040
+}
+
+.track-index-title:hover {
+  color: #ff7700
+}

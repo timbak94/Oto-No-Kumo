@@ -14,6 +14,7 @@ class TrackShow extends React.Component {
     this.handlePlay = this.handlePlay.bind(this);
     this.handlePause = this.handlePause.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
+    this.playlistCheck = this.playlistCheck.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -112,6 +113,26 @@ class TrackShow extends React.Component {
     this.props.addPlaylist(this.props.track);
   }
 
+  playlistCheck() {
+    let check = true;
+    this.props.playlist.forEach((track)=>{
+      if (track.id === this.props.track.id) {
+        check = false;
+      }
+    });
+
+    if (check === false) {
+      return (
+        <li className="add-playlist" >Added!</li>
+      );
+    } else {
+
+      return (
+        <li style={{cursor: "pointer"}} className="add-playlist" onClick={this.handleAdd}>Playlist+</li>
+      );
+    }
+  }
+
   render() {
 
     if (!this.props.track) {
@@ -139,7 +160,7 @@ class TrackShow extends React.Component {
               <ul className="play-count-genre">
                 <li className="genre" > #{this.props.track.genre}</li>
                 <li className="play-count" ><i class="fa fa-repeat" aria-hidden="true"></i>{this.props.track.play_count}</li>
-                <li className="add-playlist" onClick={this.handleAdd}>Playlist+</li>
+                {this.playlistCheck()}
               </ul>
             </section>
             <section className="bar-hold">

@@ -76,10 +76,14 @@ class MusicPlayer extends React.Component {
 
   whichButton() {
     if (this.state.playStatus === "playing" || this.state.playStatus === "start") {
-      return (<button className="music-controller" onClick={this.handlePause}><i className="fa fa-pause" aria-hidden="true"></i></button>);
+      return (<button className="music-controller" onClick={this.handlePause}>
+      <i className="fa fa-pause" aria-hidden="true"></i>
+    </button>);
     }
     if (this.state.playStatus === "paused") {
-      return (<button className="music-controller" onClick={this.handlePlay}><i className="fa fa-play" aria-hidden="true"></i></button>);
+      return (<button className="music-controller" onClick={this.handlePlay}>
+      <i className="fa fa-play" aria-hidden="true"></i>
+    </button>);
     }
   }
 
@@ -101,7 +105,7 @@ class MusicPlayer extends React.Component {
             <Link to={`/users/${this.props.author.id}`}>
               <li className="author-name">{this.props.author.username}</li>
             </Link>
-            <Link to={`/tracks/${this.props.song.id}`}>
+            <Link to={`/tracks/${this.props.song.author_id}/${this.props.song.id}`}>
               <li style={{color: "black"}}>{this.props.song.title}</li>
             </Link>
           </ul>
@@ -114,7 +118,8 @@ class MusicPlayer extends React.Component {
 
   handleTime() {
     if (this.audioPlayer) {
-      this.props.updateTime(Math.round(this.audioPlayer.currentTime), Math.round(this.audioPlayer.duration - this.audioPlayer.currentTime));
+      this.props.updateTime(Math.round(this.audioPlayer.currentTime),
+       Math.round(this.audioPlayer.duration - this.audioPlayer.currentTime));
     }
   }
 
@@ -188,21 +193,44 @@ class MusicPlayer extends React.Component {
                 onEnded={(e)=> {e.preventDefault(); this.nextSong();}}
                 ref={(audio) => { this.audioPlayer = audio; }}
                 />
+              <button className="music-controller">
+                <i class="fa fa-step-backward"></i>
+              </button>
               {this.whichButton()}
+              <button className="music-controller">
+                <i  class="fa fa-step-forward"></i>
+              </button>
               <div className="slidecontainer">
                 <section className="current-time">
                   {this.timeFormat(this.props.current)}
                 </section>
-                <input onChange={this.handleSeek} type="range" min="0" max={this.state.length} value={this.props.current ? this.props.current : "0"} className="slider" id="myRange" />
+                <input
+                  onChange={this.handleSeek}
+                  type="range"
+                  min="0"
+                  max={this.state.length}
+                  value={this.props.current ? this.props.current : "0"}
+                  className="slider"
+                  id="myRange" />
                 <section className="remaining-time">
                   {this.timeFormat(this.props.remaining)}
                 </section>
               </div>
               <div>
-                <button onClick={this.showVolume} className="music-controller"> <i className="fa fa-volume-off" aria-hidden="true" ></i></button>
+                <button
+                  onClick={this.showVolume}
+                  className="music-controller">
+                  <i className="fa fa-volume-off" aria-hidden="true" ></i>
+                </button>
                 <section className="vol-slide-cont">
                   <section className={`${this.state.showVolume}`}>
-                    <input onChange={this.handleVolume} orient="vertical" type="range" min="0" max="100" defaultValue="50" className={`volume-slider `}/>
+                    <input
+                      onChange={this.handleVolume}
+                      orient="vertical"
+                      type="range" min="0"
+                      max="100"
+                      defaultValue="50"
+                      className={`volume-slider `}/>
                   </section>
                 </section>
               </div>
@@ -210,6 +238,7 @@ class MusicPlayer extends React.Component {
               <section className="playlist-handler">
                 <i onClick={this.showPlaylist} class="fa fa-bars" aria-hidden="true"></i>
                 <section className={`playlistHolder ${this.state.showPlaylist}`}>
+                  <h1>Playlist</h1>
                   <TrackIndex tracks={this.props.playlist} style={"playlist"}/>
                 </section>
               </section>

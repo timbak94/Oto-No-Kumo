@@ -34,7 +34,6 @@
   font-size: 20px;
   outline: none;
   margin-top: 4px;
-  margin-left: 44px;
 }
 
 .slider {
@@ -168,7 +167,13 @@
 }
 
 .playlist-item {
-  transition: background-color 0.3s;
+  transition: background-color 0.1s;
+  display: flex;
+  justify-content: space-between;
+}
+
+.playlist-info {
+  display: flex;
 }
 
 .playlist-item:hover {
@@ -177,4 +182,21 @@
 
 li {
   list-style: none;
+}
+
+#remove-playlist {
+  float: right;
+  font-size: 20px;
+  color: #cccccc;
+  transition: color .1s;
+}
+
+#remove-playlist:hover {
+  color: black;
+}
+
+#skip {
+  font-size: 20px;
+  margin-left: 10px;
+  margin-top: 14px;
 }

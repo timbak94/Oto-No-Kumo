@@ -163,3 +163,15 @@ a {
   text-align: center;
   padding-top: 20px;
 }
+
+.add-playlist {
+  float: right;
+  display: inline-block;
+  cursor: default;
+  font-size: 15px;
+  padding: 5px;
+  color: white;
+  background-color: rgb(180, 180, 180);
+  border-radius: 10px;
+  margin-top: 10px;
+}
