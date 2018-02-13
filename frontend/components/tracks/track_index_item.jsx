@@ -101,6 +101,14 @@ class TrackIndexItem extends React.Component {
     }
   }
 
+  current() {
+    if (this.props.currentSong.id === this.props.track.id) {
+      return "selected-playlist";
+    } else {
+      return "";
+    }
+  }
+
   render() {
     if (this.props.style === "big-list") {
       return (
@@ -146,7 +154,7 @@ class TrackIndexItem extends React.Component {
       );
     } else {
       return (
-        <section className="playlist-item">
+        <section className={`playlist-item ${this.current()}`}>
           <section className="playlist-info">
             <img id="playlist-album" src={this.props.track.image_url}></img>
             <section className="playlist-text">
@@ -158,7 +166,7 @@ class TrackIndexItem extends React.Component {
               </Link>
             </section>
           </section>
-          <i id="remove-playlist" class="fa fa-times"></i>
+          <i onClick={this.removePlaylist} id="remove-playlist" class="fa fa-times"></i>
         </section>
       );
     }

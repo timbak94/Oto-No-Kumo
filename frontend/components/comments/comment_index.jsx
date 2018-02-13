@@ -14,7 +14,7 @@ class CommentIndex extends React.Component {
     if (this.props.comments.length > 0) {
       return (
         <div className="comments-container">
-          <h1> <i class="fa fa-comment" aria-hidden="true"></i>  Comments </h1>
+          <h1> <i className="fa fa-comment" aria-hidden="true"></i>  Comments </h1>
           {this.props.comments.reverse().map(comment => (
             <CommentItemContainer
               comment={comment}

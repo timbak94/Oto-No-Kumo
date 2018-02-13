@@ -159,7 +159,7 @@ class TrackShow extends React.Component {
               </section>
               <ul className="play-count-genre">
                 <li className="genre" > #{this.props.track.genre}</li>
-                <li className="play-count" ><i class="fa fa-repeat" aria-hidden="true"></i>{this.props.track.play_count}</li>
+                <li className="play-count" ><i className="fa fa-repeat" aria-hidden="true"></i>{this.props.track.play_count}</li>
                 {this.playlistCheck()}
               </ul>
             </section>

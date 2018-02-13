@@ -32,8 +32,11 @@ class MusicPlayer extends React.Component {
     this.showVolume = this.showVolume.bind(this);
     this.nextSong = this.nextSong.bind(this);
     this.showPlaylist = this.showPlaylist.bind(this);
+    this.skipNext = this.skipNext.bind(this);
+    this.prevSkip = this.prevSkip.bind(this);
     this.playlistIdx = 0;
-    this.looping = false;
+    this.playlistLoop = true;
+    this.singleLoop = false;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -52,7 +55,7 @@ class MusicPlayer extends React.Component {
         this.props.fetchSingleUser(this.props.song.author_id);
       }
     }
-    if (this.props.playlist.length < 1 && nextProps.playlist[0]) {
+    if (this.props.playlist.length < 1 && nextProps.playlist[0] && this.props.song === null) {
       this.props.requestCurrentSong(nextProps.playlist[0]);
     }
   }
@@ -163,8 +166,15 @@ class MusicPlayer extends React.Component {
   }
 
   nextSong() {
-    this.playlistIdx += 1;
-    this.props.requestCurrentSong(this.props.playlist[this.playlistIdx]);
+    if (this.singleLoop === true) {
+      this.audioPlayer.play();
+    } else {
+      this.playlistIdx += 1;
+      if (this.playlistLoop === true && this.playlistIdx === this.props.playlist.length) {
+        this.playlistIdx = 0;
+      }
+      this.props.requestCurrentSong(this.props.playlist[this.playlistIdx]);
+    }
   }
 
   showPlaylist(e) {
@@ -174,6 +184,24 @@ class MusicPlayer extends React.Component {
     } else {
       this.setState({showPlaylist: "hidden"});
     }
+  }
+
+  skipNext(e) {
+    e.preventDefault();
+    this.playlistIdx += 1;
+    if (this.playlistLoop === true && this.playlistIdx === this.props.playlist.length) {
+      this.playlistIdx = 0;
+    }
+    this.props.requestCurrentSong(this.props.playlist[this.playlistIdx]);
+  }
+
+  prevSkip(e) {
+    e.preventDefault();
+    this.playlistIdx -= 1;
+    if (this.playlistIdx < 0) {
+      this.playlistIdx = this.props.playlist.length - 1;
+    }
+    this.props.requestCurrentSong(this.props.playlist[this.playlistIdx]);
   }
 
   render() {
@@ -193,11 +221,11 @@ class MusicPlayer extends React.Component {
                 onEnded={(e)=> {e.preventDefault(); this.nextSong();}}
                 ref={(audio) => { this.audioPlayer = audio; }}
                 />
-              <button className="music-controller">
+              <button onClick={this.prevSkip} className="music-controller">
                 <i class="fa fa-step-backward"></i>
               </button>
               {this.whichButton()}
-              <button className="music-controller">
+              <button onClick={this.skipNext} className="music-controller">
                 <i  class="fa fa-step-forward"></i>
               </button>
               <div className="slidecontainer">
