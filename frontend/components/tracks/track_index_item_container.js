@@ -1,5 +1,11 @@
 import { connect } from 'react-redux';
-import { requestCurrentSong, playSong, pauseSong, seekSong } from '../../actions/player_actions';
+import {
+  requestCurrentSong,
+  playSong,
+  pauseSong,
+  seekSong,
+  removePlaylist
+} from '../../actions/player_actions';
 import { fetchSingleUser } from '../../actions/user_actions';
 import { clearErrors } from '../../actions/session_actions';
 import TrackIndexItem from './track_index_item';
@@ -21,7 +27,8 @@ export const mapDispatchToProps = (dispatch) => {
     requestCurrentSong: (song) => dispatch(requestCurrentSong(song)),
     playSong: () => dispatch(playSong()),
     pauseSong: () => dispatch(pauseSong()),
-    fetchSingleUser: (id) => dispatch(fetchSingleUser(id))
+    fetchSingleUser: (id) => dispatch(fetchSingleUser(id)),
+    removePlaylist: (song) => dispatch(removePlaylist(song))
   };
 };
 

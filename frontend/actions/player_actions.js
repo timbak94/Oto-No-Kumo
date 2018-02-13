@@ -28,10 +28,10 @@ export const addPlaylist = (song) => {
   };
 };
 
-export const removePlaylist = (songId) => {
+export const removePlaylist = (song) => {
   return {
     type: REMOVE_PLAYLIST,
-    songId: songId,
+    song: song,
   };
 };
 

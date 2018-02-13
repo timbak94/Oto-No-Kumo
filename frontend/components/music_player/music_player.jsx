@@ -58,6 +58,19 @@ class MusicPlayer extends React.Component {
     if (this.props.playlist.length < 1 && nextProps.playlist[0] && this.props.song === null) {
       this.props.requestCurrentSong(nextProps.playlist[0]);
     }
+    if (this.props.playlist.length > nextProps.playlist.length) {
+      let idx;
+      this.props.playlist.forEach((el, i) => {
+        if (el.id === nextProps.lastRemoved.id) {
+          idx = i;
+        }
+      });
+
+      if (idx <= this.playlistIdx && this.playlistIdx > 0) {
+
+        this.playlistIdx -= 1;
+      }
+    }
   }
 
   handlePlay(e) {
@@ -222,11 +235,11 @@ class MusicPlayer extends React.Component {
                 ref={(audio) => { this.audioPlayer = audio; }}
                 />
               <button onClick={this.prevSkip} className="music-controller">
-                <i class="fa fa-step-backward"></i>
+                <i className="fa fa-step-backward"></i>
               </button>
               {this.whichButton()}
               <button onClick={this.skipNext} className="music-controller">
-                <i  class="fa fa-step-forward"></i>
+                <i  className="fa fa-step-forward"></i>
               </button>
               <div className="slidecontainer">
                 <section className="current-time">
@@ -264,7 +277,7 @@ class MusicPlayer extends React.Component {
               </div>
               {this.songInfo()}
               <section className="playlist-handler">
-                <i onClick={this.showPlaylist} class="fa fa-bars" aria-hidden="true"></i>
+                <i onClick={this.showPlaylist} className="fa fa-bars hamburger" aria-hidden="true"></i>
                 <section className={`playlistHolder ${this.state.showPlaylist}`}>
                   <h1>Playlist</h1>
                   <TrackIndex tracks={this.props.playlist} style={"playlist"}/>

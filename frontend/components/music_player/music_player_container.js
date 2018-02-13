@@ -24,7 +24,8 @@ const mapStateToProps = (state, ownProps) => {
     status: state.player.status ? state.player.status : "stopped",
     author: author ? author : null,
     seek: state.player.seek,
-    playlist: state.player.playlist
+    playlist: state.player.playlist,
+    lastRemoved: state.player.lastRemoved
   };
 };
 

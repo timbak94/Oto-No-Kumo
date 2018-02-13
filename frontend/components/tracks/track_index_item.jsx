@@ -10,6 +10,8 @@ class TrackIndexItem extends React.Component {
     this.handlePlay = this.handlePlay.bind(this);
     this.handlePause = this.handlePause.bind(this);
     this.authorInfo = this.authorInfo.bind(this);
+    this.removePlaylist = this.removePlaylist.bind(this);
+    this.pickPlaylist = this.pickPlaylist.bind(this);
   }
 
   componentDidMount() {
@@ -109,6 +111,18 @@ class TrackIndexItem extends React.Component {
     }
   }
 
+  removePlaylist(e) {
+    e.preventDefault();
+    this.props.removePlaylist(this.props.track);
+  }
+
+  pickPlaylist(e) {
+    e.preventDefault();
+    if (e.target.nodeName === "SECTION") {
+      this.requestCurrentSong(this.props.track);
+    }
+  }
+
   render() {
     if (this.props.style === "big-list") {
       return (
@@ -154,7 +168,8 @@ class TrackIndexItem extends React.Component {
       );
     } else {
       return (
-        <section className={`playlist-item ${this.current()}`}>
+        <section onClick={this.pickPlaylist} className={`playlist-item ${this.current()}`}>
+
           <section className="playlist-info">
             <img id="playlist-album" src={this.props.track.image_url}></img>
             <section className="playlist-text">
