@@ -119,7 +119,7 @@ class TrackIndexItem extends React.Component {
   pickPlaylist(e) {
     e.preventDefault();
     if (e.target.nodeName === "SECTION") {
-      this.requestCurrentSong(this.props.track);
+      this.props.requestCurrentSong(this.props.track);
     }
   }
 
@@ -141,7 +141,7 @@ class TrackIndexItem extends React.Component {
                   </Link>
                 </section>
               </section>
-              <h1><i class="fa fa-repeat" aria-hidden="true"></i>{this.props.track.play_count}</h1>
+              <h1><i className="fa fa-repeat" aria-hidden="true"></i>{this.props.track.play_count}</h1>
             </section>
             <section className="track-index-bar-holder">
               {this.whichBar()}
@@ -181,7 +181,7 @@ class TrackIndexItem extends React.Component {
               </Link>
             </section>
           </section>
-          <i onClick={this.removePlaylist} id="remove-playlist" class="fa fa-times"></i>
+          <i onClick={this.removePlaylist} id="remove-playlist" className="fa fa-times"></i>
         </section>
       );
     }

@@ -54,6 +54,7 @@ class MusicPlayer extends React.Component {
       if (this.props.author === null) {
         this.props.fetchSingleUser(this.props.song.author_id);
       }
+
     }
     if (this.props.playlist.length < 1 && nextProps.playlist[0] && this.props.song === null) {
       this.props.requestCurrentSong(nextProps.playlist[0]);
@@ -65,11 +66,17 @@ class MusicPlayer extends React.Component {
           idx = i;
         }
       });
-
       if (idx <= this.playlistIdx && this.playlistIdx > 0) {
-
         this.playlistIdx -= 1;
       }
+
+    }
+    if (this.props.song && nextProps.song.id !== this.props.song.id) {
+      nextProps.playlist.forEach((el, i)=>{
+        if (el.id === nextProps.song.id) {
+          this.playlistIdx = i;
+        }
+      });
     }
   }
 
