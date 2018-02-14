@@ -21,6 +21,7 @@ class MusicPlayer extends React.Component {
       showVolume: "hidden-vol",
       showPlaylist: "hidden"
     };
+    this.volume = 0.5;
     this.handlePlay = this.handlePlay.bind(this);
     this.handlePause = this.handlePause.bind(this);
     this.handleProgressClick = this.handleProgressClick.bind(this);
@@ -85,7 +86,7 @@ class MusicPlayer extends React.Component {
     this.setState({playStatus: "playing"});
     this.audioPlayer.play();
     this.props.playSong();
-    // this.hello = setInterval(this.barIncrement, 1000);
+
   }
 
   handlePause(e) {
@@ -93,7 +94,7 @@ class MusicPlayer extends React.Component {
     this.setState({playStatus: "paused"});
     this.audioPlayer.pause();
     this.props.pauseSong();
-    // clearInterval(this.hello);
+
   }
 
 
@@ -152,7 +153,7 @@ class MusicPlayer extends React.Component {
 
   handleDuration() {
     this.setState({length: this.audioPlayer.duration});
-    this.audioPlayer.volume = 0.5;
+    this.audioPlayer.volume = this.volume;
   }
 
 
@@ -163,7 +164,8 @@ class MusicPlayer extends React.Component {
 
   handleVolume(e) {
     e.preventDefault();
-    this.audioPlayer.volume = e.target.value/100;
+    this.volume = e.target.value/100;
+    this.audioPlayer.volume = this.volume;
   }
 
   showVolume(e) {
