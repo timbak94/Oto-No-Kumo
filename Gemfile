@@ -35,13 +35,13 @@ gem 'jquery-rails'
 gem 'aws-sdk', '< 3.0'
 gem "paperclip", "~> 5.0.0"
 gem "figaro"
-gem 'pry-rails'
 gem 'ruby-mp3info', :require => 'mp3info'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a  console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
+  gem 'pry-rails'
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'better_errors'

@@ -43,10 +43,15 @@
 }
 
 .user-show-selected {
+  cursor: pointer;
   color: #ff7700;
   border-bottom: 1px solid #ff7700;
 }
 
 .profile-nav {
   padding: 20px 39px;
+}
+
+.user-index-setter {
+  cursor: pointer;
 }
