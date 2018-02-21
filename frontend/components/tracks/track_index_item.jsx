@@ -126,7 +126,7 @@ class TrackIndexItem extends React.Component {
   render() {
     if (this.props.style === "big-list") {
       return (
-        <div className="track-index-item-big">
+        <div className="track-index-item-big animated fadeIn">
           <Link to={`/tracks/${this.props.track.author_id}/${this.props.track.id}`}>
             <img className="track-index-image-reg" src={this.props.track.image_url}></img>
           </Link>
@@ -152,7 +152,7 @@ class TrackIndexItem extends React.Component {
       );
     } else if (this.props.style === "home-page") {
       return (
-        <section className="home-track-container">
+        <section className="home-track-container animated fadeIn">
           <section className="home-track-container-background">
             <section className="home-track" style={{backgroundImage: `url(${this.props.track.image_url})`}}>
               <section className="home-track-controller">
