@@ -159,7 +159,7 @@ class TrackShow extends React.Component {
               </section>
               <ul className="play-count-genre">
                 <li className="genre" > #{this.props.track.genre}</li>
-                <li className="play-count" ><i className="fa fa-repeat" aria-hidden="true"></i>{this.props.track.play_count}</li>
+                <li className="play-count" ><i className="fa fa-repeat" id="repeat" aria-hidden="true"></i>{this.props.track.play_count}</li>
                 {this.playlistCheck()}
               </ul>
             </section>
@@ -181,9 +181,11 @@ class TrackShow extends React.Component {
               </Link>
               {this.ownership()}
             </section>
-            <section className="description">
+            <section className="description-holder">
               <h1> Description </h1>
-              <pre>{this.props.track.description}</pre>
+              <section className="description">
+                <pre>{this.props.track.description}</pre>
+              </section>
             </section>
             <CommentIndexContainer id={this.props.track.id}/>
           </section>

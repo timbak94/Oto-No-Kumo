@@ -18,6 +18,8 @@
 }
 
 .navbar li form input {
+  cursor: default;
+  color: transparent
   -moz-transition: all .2s ease-in;
    -o-transition: all .2s ease-in;
    -webkit-transition: all .2s ease-in;
@@ -28,7 +30,7 @@
   border: none;
   padding: 0px 5px;
   font-size: 15px;
-  background-color: whitesmoke;
+  background-color: transparent;
   font-weight: 300;
 }
 

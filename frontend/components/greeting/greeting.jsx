@@ -33,7 +33,7 @@ class Greeting extends React.Component {
           <li>
             <div id="search-marg"></div>
             <form>
-              <input type="text" id="search" placeholder="Search Doesn't Work...............................................yet. *X-files theme intesifies*"/>
+              <input type="text" id="search" disabled="disabled"/>
             </form>
           </li>
           <li>

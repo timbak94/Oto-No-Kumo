@@ -92,6 +92,9 @@ a {
 }
 
 .genre {
+  display: inline-block;
+  float: right;
+  right: 0px;
   cursor: default;
   font-size: 15px;
   padding: 4px;
@@ -99,6 +102,10 @@ a {
   background-color: rgb(180, 180, 180);
   border-radius: 10px;
   margin-bottom: 10px;
+}
+
+#repeat {
+  display: initial;
 }
 
 .play-count {
@@ -132,20 +139,25 @@ a {
   background-color: #ff5400;
 }
 
-.description {
+.description-holder {
   padding: 10px;
-  width: 300px;
-  height: 200px;
+  width: 600px;
 }
 
-.description h1 {
+.description {
+  height: 300px;
+  overflow-y: auto;
+}
+
+.description-holder h1 {
   padding-bottom: 4px;
   color: #737373;
   border-bottom: 1px solid #737373;
 }
 
 .description pre {
-  overflow: wrap;
+  white-space: pre-line;
+
   margin-top: 10px;
 }
 
