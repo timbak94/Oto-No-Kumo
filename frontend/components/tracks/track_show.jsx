@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import TrackFormContainer from './track_form_container';
 import { hideModal } from '../../modal/actions_reducers';
 import CommentIndexContainer from '../comments/comment_index_container';
 import CommentFormContainer from '../comments/comment_form_container';
 import PlayBar from '../music_player/inline_play_bar_container';
+import Palette from 'react-palette';
 
 class TrackShow extends React.Component {
   constructor(props) {
@@ -133,6 +134,19 @@ class TrackShow extends React.Component {
     }
   }
 
+
+  pickColors() {
+    if (this.props.track) {
+      return (
+        <Palette image={"http://s3.amazonaws.com/oto-no-kumo-dev/tracks/images/000/000/007/original/513G9IA6vIL._SS500.jpg?1518539365"}>
+          {palette => {
+            debugger
+          }}
+        </Palette>
+      );
+    }
+  }
+
   render() {
 
     if (!this.props.track) {
@@ -168,6 +182,7 @@ class TrackShow extends React.Component {
             </section>
           </section>
           <img src={this.props.track.image_url} className="track-show-image"></img>
+          {this.pickColors()}
         </section>
         <section className="track-show-below">
           <CommentFormContainer trackId={this.props.track.id}/>
