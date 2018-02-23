@@ -140,7 +140,6 @@ class TrackShow extends React.Component {
       return (
         <Palette image={"http://s3.amazonaws.com/oto-no-kumo-dev/tracks/images/000/000/007/original/513G9IA6vIL._SS500.jpg?1518539365"}>
           {palette => {
-            debugger
           }}
         </Palette>
       );
