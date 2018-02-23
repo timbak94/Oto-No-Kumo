@@ -5,7 +5,7 @@ import { hideModal } from '../../modal/actions_reducers';
 import CommentIndexContainer from '../comments/comment_index_container';
 import CommentFormContainer from '../comments/comment_form_container';
 import PlayBar from '../music_player/inline_play_bar_container';
-import Palette from 'react-palette';
+
 
 class TrackShow extends React.Component {
   constructor(props) {
@@ -16,6 +16,7 @@ class TrackShow extends React.Component {
     this.handlePause = this.handlePause.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
     this.playlistCheck = this.playlistCheck.bind(this);
+    // this.colorCheck = this.colorCheck.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -134,11 +135,19 @@ class TrackShow extends React.Component {
     }
   }
 
+  // colorCheck() {
+  //   let img = document.getElementById("show-album");
+  //   let can = document.getElementById("show-album-canvas");
+  //   if (img) {
+  //     can.width = 320;
+  //     can.height = 320;
+  //     let ctx = can.getContext('2d');
+  //     ctx.drawImage(img, 0,0, 320, 320);
+  //   }
+  // }
 
-  pickColors() {
-    if (this.props.track) {
-    }
-  }
+
+
 
   render() {
 
@@ -174,8 +183,7 @@ class TrackShow extends React.Component {
               {this.whichBar()}
             </section>
           </section>
-          <img src={this.props.track.image_url} className="track-show-image"></img>
-          {this.pickColors()}
+            <img id="show-album" src={this.props.track.image_url} className="track-show-image"></img>
         </section>
         <section className="track-show-below">
           <CommentFormContainer trackId={this.props.track.id}/>
