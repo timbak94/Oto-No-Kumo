@@ -2,7 +2,8 @@
 ---
 Oto no Kumo is a web application used to upload, listen, and respond to music. Inspired by SoundCloud (Oto no Kumo is Japanese for __Cloud of Sound__), I constructed Oto no Kumo with Ruby on Rails for the backend, and React and Redux for the frontend.
 
-See the live site [here!](http://oto-no-kumo.herokuapp.com/#/welcome)
+~~See the live site [here!](http://oto-no-kumo.herokuapp.com/#/welcome~~
+Update: Heroku has suspended their free tier for hosting, site no longer works :( 
 
 #### Welcome Page
 ![Alt Text](https://i.imgur.com/HGb06b9.png)
